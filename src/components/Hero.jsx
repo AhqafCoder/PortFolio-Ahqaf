@@ -1,9 +1,9 @@
-export default function Hero() {
-    return (
-      <section className="text-center p-20 bg-gray-700">
-        <h1 className="text-4xl font-bold">Hello, I'm Jugadu 👋</h1>
-        <p className="text-lg mt-4">I build web apps and love coding!</p>
-      </section>
-    );
-  }
-  
+const Hero = () => {
+  return (
+    <div className="h-screen flex items-center justify-center bg-[url('./assets/bg.png')] bg-cover bg-center">
+      <h1 className="text-white text-5xl font-bold">Welcome to My Site</h1>
+    </div>
+  );
+};
+
+export default Hero;
