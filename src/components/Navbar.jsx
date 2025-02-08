@@ -41,7 +41,7 @@ const Navbar = () => {
                     <a href="/" className='text-white hover:bg-white hover:text-black px-6 py-2 rounded-full'>Services</a>
                     <a href="/" className='text-white hover:bg-white hover:text-black px-6 py-2 rounded-full'>Projects</a>
                     <a href="/" className='text-white hover:bg-white hover:text-black px-6 py-2 rounded-full'>Contact</a>
-                    <button className='bg-gradient-to-r from-green-400 to-blue-500 text-black px-6 py-2 rounded-full'>
+                    <button className='bg-gradient-to-r from-purple-400 to-pink-500 text-black px-6 py-2 rounded-full'>
                         Connect Me
                     </button>
                 </div>

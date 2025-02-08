@@ -10,20 +10,14 @@ const Hero = () => {
   };
 
   return (
-    <div
-      className="relative text-white  py-12 flex flex-col lg:flex-row justify-center items-center h-auto lg:h-screen px-6 lg:px-12 overflow-hidden"
-      onMouseMove={handleMouseMove}
-      style={{ backgroundImage: `url(${BgImage})`, backgroundSize: "cover", backgroundPosition: "center" }} // ✅ Keeps BG
-    >
-      {/* ✅ Dynamic Hover Effect (Smaller Glow) */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background: `radial-gradient(circle at ${position.x}px ${position.y}px, rgba(180, 0, 255, 0.3), rgba(255, 0, 150, 0.15), rgba(0,0,0,0.85) 50%)`,
-          transition: "background 0.05s ease",
-        }}
-      />
+    <div className="flex flex-col min-h-screen">
 
+     <div className="relative text-white py-12 flex flex-col lg:flex-row justify-center items-center min-h-screen px-6 lg:px-12 overflow-hidden"
+       on MouseMove={handleMouseMove}
+       style={{ backgroundImage: `url(${BgImage})`, backgroundSize: "cover", backgroundPosition: "center" }}
+     >
+
+      
       {/* Left Section */}
       <div className="w-full lg:w-1/2 text-center lg:text-left p-6 relative z-10">
         <h1 className="text-4xl lg:text-7xl font-bold">
@@ -52,15 +46,16 @@ const Hero = () => {
         </p>
 
         {/* Buttons */}
-        <div className="mt-6 space-y-4 lg:space-y-0 lg:space-x-4">
-          <button className="px-6 py-2 bg-blue-600 text-white rounded-full w-full lg:w-auto bg-gradient-to-r from-purple-400 to-pink-500">
+        <div className="mt-6 space-y-4 space-x-4 lg:space-y-0 lg:space-x-4">
+          <button className=" md:inline bg-gradient-to-r from-purple-400 to-pink-500 text-black px-4 py-2 rounded-full transform transition-transform duration-300 hover:scale-105">
             Contact With Me
           </button>
-          <button className="px-6 py-2 bg-gray-700 text-white rounded-full w-full lg:w-auto bg-gradient-to-r from-purple-400 to-pink-500">
+          <button className="md:inline bg-gradient-to-r from-purple-400 to-pink-500 text-black px-4 py-2 rounded-full transform transition-transform duration-300 hover:scale-105">
             Resume
           </button>
         </div>
       </div>
+    </div>
     </div>
   );
 };
