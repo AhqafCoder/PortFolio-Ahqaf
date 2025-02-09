@@ -1,12 +1,50 @@
-export default function Projects() {
-    return (
-      <section id="projects" className="p-10">
-        <h2 className="text-3xl font-bold text-center">Projects</h2>
-        <div className="mt-6 space-y-4">
-          <div className="p-4 bg-gray-800 rounded-lg">🚀 Project 1</div>
-          <div className="p-4 bg-gray-800 rounded-lg">🎮 Project 2</div>
-        </div>
-      </section>
-    );
-  }
-  
+import React from "react";
+
+const projects = [
+  {
+    name: "IndiPixel Website",
+    description: "An interactive website for the IndiPixel Minecraft server, showcasing game modes, updates, and community features.",
+    link: "https://indipixel.netlify.app/",
+  },
+  {
+    name: "CWeb Framework Server",
+    description: "A custom web framework server built to handle efficient web requests and responses.",
+    link: "#", // Replace with actual link
+  },
+  {
+    name: "Portfolio Website",
+    description: "My personal portfolio showcasing my skills, experience, and projects.",
+    link: "#", // Replace with actual link
+  },
+  {
+    name: "DocSmart",
+    description: "A smart document management system designed for efficient organization and retrieval.",
+    link: "#", // Replace with actual link
+  },
+];
+
+const Projects = () => {
+  return (
+    <section className="p-6">
+      <h2 className="text-2xl font-bold mb-4">Projects</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {projects.map((project, index) => (
+          <div key={index} className="p-4 border rounded-lg shadow-md bg-white">
+            <h3 className="text-xl font-semibold">{project.name}</h3>
+            <p className="text-gray-600 my-2">{project.description}</p>
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 hover:underline"
+            >
+              View Project
+            </a>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export default Projects;

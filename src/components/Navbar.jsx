@@ -14,8 +14,8 @@ const Navbar = () => {
                 <div className='hidden md:flex space-x-6'>
                     <a href="/" className='text-white hover:bg-white hover:text-black px-4 py-2 rounded-full'>Home</a>
                     <a href="/" className='text-white hover:bg-white hover:text-black px-4 py-2 rounded-full'>About Me</a>
-                    <a href="/" className='text-white hover:bg-white hover:text-black px-4 py-2 rounded-full'>Services</a>
                     <a href="/" className='text-white hover:bg-white hover:text-black px-4 py-2 rounded-full'>Projects</a>
+                    <a href="/" className='text-white hover:bg-white hover:text-black px-4 py-2 rounded-full'>Services</a>
                     <a href="/" className='text-white hover:bg-white hover:text-black px-4 py-2 rounded-full'>Contact</a>
                 </div>
 
@@ -37,9 +37,9 @@ const Navbar = () => {
             {menuOpen && (
                 <div className="md:hidden flex flex-col items-center space-y-4 py-4 bg-gray-900 rounded-lg">
                     <a href="/" className='text-white hover:bg-white hover:text-black px-6 py-2 rounded-full'>Home</a>
-                    <a href="/" className='text-white hover:bg-white hover:text-black px-6 py-2 rounded-full'>About Me</a>
+                    <a href="#about" className='text-white hover:bg-white hover:text-black px-6 py-2 rounded-full'>About Me</a>
+                    <a href="#projects" className='text-white hover:bg-white hover:text-black px-6 py-2 rounded-full'>Projects</a>
                     <a href="/" className='text-white hover:bg-white hover:text-black px-6 py-2 rounded-full'>Services</a>
-                    <a href="/" className='text-white hover:bg-white hover:text-black px-6 py-2 rounded-full'>Projects</a>
                     <a href="/" className='text-white hover:bg-white hover:text-black px-6 py-2 rounded-full'>Contact</a>
                     <button className='bg-gradient-to-r from-purple-400 to-pink-500 text-black px-6 py-2 rounded-full'>
                         Connect Me
