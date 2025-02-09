@@ -18,7 +18,7 @@ const About = () => {
 
       {/* Text Section */}
       <div className="lg:w-2/3 text-left lg:text-left mt-8 mx-4 lg:mt-0 lg:pl-12">
-        <h1 className="text-4xl lg:text-6xl font-bold mb-6">About Me</h1>
+        <h1 className="text-4xl lg:text-6xl text-center font-bold mb-6">About Me</h1>
         
         <p className="mt-4 text-base text-gray-300 leading-relaxed">
           Hey, I’m <span className="font-semibold">Ahqaf Ali</span>, also known as <span className="font-semibold">Jugadu Gaming</span>. 
