@@ -12,7 +12,7 @@ const projects = [
     link: "#",
     source: "#",
     image: portfolio,
-    date: "- 3 Feb, 2025",
+    date: "- 5 Feb, 2025",
   },
   {
     name: "CWeb Server",
@@ -20,7 +20,7 @@ const projects = [
     link: "#",
     source: "#",
     image: bg2,
-    date: "- 5 Jan, 2024",
+    date: "- 2 Feb, 2025",
   },
   {
     name: "DocSmart",
@@ -28,7 +28,7 @@ const projects = [
     link: "#",
     source: "#",
     image: docsmart,
-    date: "- 20 Dec, 2023",
+    date: "- 14 Jan, 2025",
   },
   {
     name: "IndiPixel Website",
@@ -36,7 +36,7 @@ const projects = [
     link: "https://indipixel.netlify.app/",
     source: "#",
     image: indiimage,
-    date: "- 15 Nov, 2023",
+    date: "- 4 Jan, 2025",
   },
 ];
 
@@ -48,7 +48,7 @@ const Projects = () => {
         {projects.map((project, index) => (
           <React.Fragment key={index}>
             {index > 0 && <div className="w-1 h-8 bg-gray-400 mx-auto my-4"></div>} 
-            <div className="flex flex-col md:flex-row items-center md:items-start bg-gray-900 text-white rounded-lg shadow-lg overflow-hidden w-full p-6 border border-gray-700">
+            <div className="flex flex-col md:flex-row items-center md:items-start bg-black text-white rounded-lg shadow-lg overflow-hidden w-full p-6 border border-gray-700">
               <div className="w-full md:w-1/2 flex justify-center">
                 <img src={project.image} alt={project.name} className="w-full h-64 object-cover rounded-lg" />
               </div>
