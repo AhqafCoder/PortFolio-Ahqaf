@@ -1,9 +1,9 @@
 import React from "react";
 import { FaGithub } from "react-icons/fa";
 import indiimage from '../assets/image.png';
-import bg2 from '../assets/image2.png';
+import cweb from '../assets/image2.png';
 import portfolio from '../assets/image1.png';
-import docsmart from '../assets/image.png';
+import docsmart from '../assets/image3.png';
 
 const projects = [
   {
@@ -19,7 +19,7 @@ const projects = [
     description: "A custom web framework server built to handle efficient web requests and responses.",
     link: "#",
     source: "#",
-    image: bg2,
+    image: cweb,
     date: "- 2 Feb, 2025",
   },
   {
