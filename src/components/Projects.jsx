@@ -1,8 +1,8 @@
 import React from "react";
 import { FaGithub } from "react-icons/fa";
 import indiimage from '../assets/image.png';
-import bg2 from '../assets/image.png';
-import portfolio from '../assets/image.png';
+import bg2 from '../assets/image2.png';
+import portfolio from '../assets/image1.png';
 import docsmart from '../assets/image.png';
 
 const projects = [
@@ -49,8 +49,9 @@ const Projects = () => {
           <React.Fragment key={index}>
             {index > 0 && <div className="w-1 h-8 bg-gray-400 mx-auto my-4"></div>} 
             <div className="flex flex-col md:flex-row items-center md:items-start bg-black text-white rounded-lg shadow-lg overflow-hidden w-full p-6 border border-gray-700">
-              <div className="w-full md:w-1/2 flex justify-center">
-                <img src={project.image} alt={project.name} className="w-full h-64 object-cover rounded-lg" />
+              <div className="w-full md:w-1/2 flex justify-center items-center self-center">
+              <img src={project.image} alt={project.name} className="w-[1340px] h-[640px] object-cover rounded-lg" />
+
               </div>
               <div className="p-6 flex flex-col justify-between w-full md:w-1/2 h-full min-h-[16rem]">
                 <div className="flex-1">
