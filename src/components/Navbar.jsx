@@ -13,10 +13,10 @@ const Navbar = () => {
                 {/* Desktop Navigation */}
                 <div className='hidden md:flex space-x-6'>
                     <a href="/" className='text-white hover:bg-white hover:text-black px-4 py-2 rounded-full'>Home</a>
-                    <a href="/" className='text-white hover:bg-white hover:text-black px-4 py-2 rounded-full'>About Me</a>
-                    <a href="/" className='text-white hover:bg-white hover:text-black px-4 py-2 rounded-full'>Projects</a>
+                    <a href="#about" className='text-white hover:bg-white hover:text-black px-4 py-2 rounded-full'>About Me</a>
+                    <a href="#projects" className='text-white hover:bg-white hover:text-black px-4 py-2 rounded-full'>Projects</a>
                     <a href="/" className='text-white hover:bg-white hover:text-black px-4 py-2 rounded-full'>Services</a>
-                    <a href="/" className='text-white hover:bg-white hover:text-black px-4 py-2 rounded-full'>Contact</a>
+                    <a href="#contact" className='text-white hover:bg-white hover:text-black px-4 py-2 rounded-full'>Contact</a>
                 </div>
 
                 {/* Desktop Button */}

@@ -3,7 +3,9 @@ import AboutPage from "../assets/myimage.jpg";
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-[url('./assets/bg1.jpg')] text-white flex flex-col lg:flex-row items-center justify-center px-6 lg:px-20 py-12">
+    
+    <div className="min-h-screen bg-[url('./assets/bg1.jpg')] text-white flex flex-col lg:flex-row items-center justify-center px-6 lg:px-20 py-12" id="about">
+      
       
       {/* Image Section */}
       <div className="flex justify-center items-center">

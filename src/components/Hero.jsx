@@ -10,7 +10,8 @@ const Hero = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen" >
+      
 
      <div className="relative text-white py-12 flex flex-col lg:flex-row justify-center items-center min-h-screen px-6 lg:px-12 overflow-hidden"
        on MouseMove={handleMouseMove}
@@ -53,9 +54,11 @@ const Hero = () => {
           <button className="md:inline bg-gradient-to-r from-purple-400 to-pink-500 text-black px-4 py-2 rounded-full transform transition-transform duration-300 hover:scale-105">
             Resume
           </button>
+          
         </div>
       </div>
     </div>
+    
     </div>
   );
 };

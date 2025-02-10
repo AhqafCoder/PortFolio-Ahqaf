@@ -42,7 +42,8 @@ const projects = [
 
 const Projects = () => {
   return (
-    <section className="p-6 bg-cover bg-center bg-[url('./assets/bg2.jpg')] min-h-screen flex flex-col items-center">
+    <section className="p-6 bg-cover bg-center bg-[url('./assets/bg2.jpg')] min-h-screen flex flex-col items-center" id="projects">
+      <hr className="w-full border-gray-700 my-6" />
       <h2 className="text-6xl font-bold mb-16 text-white">Projects</h2>
       <div className="space-y-12 w-full max-w-4xl relative">
         {projects.map((project, index) => (
