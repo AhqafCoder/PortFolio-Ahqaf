@@ -1,5 +1,5 @@
 import React from "react";
-import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaPhone } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope, FaPhone } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -63,14 +63,14 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold text-white">Follow Me</h3>
             <div className="flex space-x-4 mt-2">
-              <a href="https://github.com/yourgithub" target="_blank" rel="noopener noreferrer" className="hover:text-white">
+              <a href="https://github.com/AhqafCoder" target="_blank" rel="noopener noreferrer" className="hover:text-white">
                 <FaGithub size={22} />
               </a>
-              <a href="https://linkedin.com/in/yourlinkedin" target="_blank" rel="noopener noreferrer" className="hover:text-white">
+              <a href="https://www.linkedin.com/in/ahqaf-ali/" target="_blank" rel="noopener noreferrer" className="hover:text-white">
                 <FaLinkedin size={22} />
               </a>
-              <a href="https://twitter.com/yourtwitter" target="_blank" rel="noopener noreferrer" className="hover:text-white">
-                <FaTwitter size={22} />
+              <a href="https://www.instagram.com/ahqafali0403/" target="_blank" rel="noopener noreferrer" className="hover:text-white">
+                <FaInstagram size={22} />
               </a>
             </div>
           </div>
