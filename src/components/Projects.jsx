@@ -9,7 +9,7 @@ const projects = [
   {
     name: "Portfolio Website",
     description: "My personal portfolio showcasing my skills, experience, and projects.",
-    link: "#",
+    link: "https://portfolio-ahqaf.onrender.com/",
     source: "https://github.com/AhqafCoder/PortFolio-Ahqaf",
     image: portfolio,
     date: "- 5 Feb, 2025",
@@ -17,7 +17,7 @@ const projects = [
   {
     name: "CWeb Server",
     description: "A custom web framework server built to handle efficient web requests and responses.",
-    link: "#",
+    link: "https://cweb-7pbz.onrender.com",
     source: "https://github.com/AhqafCoder/CWEB",
     image: cweb,
     date: "- 2 Feb, 2025",
