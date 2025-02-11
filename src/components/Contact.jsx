@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaPhone } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope, FaPhone } from "react-icons/fa";
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -86,8 +86,11 @@ const Contact = () => {
         <a href="https://github.com/AhqafCoder" target="_blank" className="text-gray-400 hover:text-gray-200">
           <FaGithub size={24} />
         </a>
-        <a href="https://www.linkedin.com/in/your-profile" target="_blank" className="text-gray-400 hover:text-gray-200">
+        <a href="https://www.linkedin.com/in/ahqaf-ali/" target="_blank" className="text-gray-400 hover:text-gray-200">
           <FaLinkedin size={24} />
+        </a>
+        <a href="https://www.instagram.com/ahqafali0403/" target="_blank" className="text-gray-400 hover:text-gray-200">
+          <FaInstagram size={24} />
         </a>
         <a href="tel:+917084089921" className="text-gray-400 hover:text-gray-200">
           <FaPhone size={24} />
