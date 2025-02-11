@@ -1,5 +1,5 @@
 import React from "react";
-import AboutPage from "../assets/myimage.jpg";
+import AboutPage from "../assets/myimage2.jpg";
 
 const About = () => {
   return (
@@ -13,8 +13,8 @@ const About = () => {
           src={AboutPage}
           alt="Profile" 
           className="shadow-lg object-cover 
-          sm:w-[250px] sm:h-[250px] sm:rounded-xl 
-          lg:w-[400px] lg:max-h-[400px] lg:rounded-2xl"
+           rounded-full aspect-square
+          lg:w-[400px] lg:max-h-[600px] lg:rounded-2xl"
         />
       </div>
 

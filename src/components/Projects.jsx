@@ -33,7 +33,7 @@ const projects = [
   {
     name: "IndiPixel Website",
     description: "An interactive website for the IndiPixel Minecraft server, showcasing game modes, updates, and community features.",
-    link: "https://indipixel.netlify.app/",
+    link: "https://indipixel.online/",
     source: "https://github.com/AhqafCoder/INDIPIXEL",
     image: indiimage,
     date: "- 4 Jan, 2025",
@@ -43,16 +43,15 @@ const projects = [
 const Projects = () => {
   return (
     <section className="p-6 bg-cover bg-center bg-[url('./assets/bg2.jpg')] min-h-screen flex flex-col items-center" id="projects">
-      <hr className="w-full border-gray-700 my-6" />
-      <h2 className="text-6xl font-bold mb-16 text-white">Projects</h2>
-      <div className="space-y-12 w-full max-w-4xl relative">
+     
+      <h2 className="text-6xl font-bold mb-20 text-white">Projects</h2>
+      <div className="space-y-14 w-full max-w-4xl relative">
         {projects.map((project, index) => (
           <React.Fragment key={index}>
             {index > 0 && <div className="w-1 h-8 bg-gray-400 mx-auto my-4"></div>} 
-            <div className="flex flex-col md:flex-row items-center md:items-start bg-black text-white rounded-lg shadow-lg overflow-hidden w-full p-6 border border-gray-700">
+            <div className="flex flex-col md:flex-row items-center md:items-start bg-black text-white rounded-lg shadow-lg overflow-hidden w-full p-6 border border-gray-700 transform transition-transform duration-300 ">
               <div className="w-full md:w-1/2 flex justify-center items-center self-center">
-              <img src={project.image} alt={project.name} className="w-[1340px] h-[640px] object-cover rounded-lg" />
-
+                <img src={project.image} alt={project.name} className="w-[1340px] h-[640px] object-cover rounded-lg " />
               </div>
               <div className="p-6 flex flex-col justify-between w-full md:w-1/2 h-full min-h-[16rem]">
                 <div className="flex-1">
