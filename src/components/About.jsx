@@ -14,7 +14,7 @@ const About = () => {
           alt="Profile" 
           className="shadow-lg object-cover 
           sm:w-[250px] sm:h-[250px] sm:rounded-xl 
-          lg:w-auto lg:max-h-[400px] lg:rounded-2xl"
+          lg:w-[400px] lg:max-h-[400px] lg:rounded-2xl"
         />
       </div>
 
