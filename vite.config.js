@@ -9,7 +9,7 @@ export default defineConfig({
     host: "0.0.0.0",
     port: process.env.PORT || 10000,
     strictPort: true,
-    allowedHosts: ["portfolio-ahqaf.onrender.com"] // Add this line
+    allowedHosts: ["portfolio-ahqaf.onrender.com","ahqafali.site","www.ahqafali.site"] 
   }
   
 })
