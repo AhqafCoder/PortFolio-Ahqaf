@@ -48,14 +48,14 @@ const Hero = () => {
         </p>
 
         {/* Buttons */}
-        <div className="mt-6 space-y-4 space-x-3 lg:space-y-0 lg:space-x-4">
+        <div className="mt-6 flex flex-wrap justify-center gap-3">
           <a href="#contact">
-          <button className=" md:inline bg-gradient-to-r from-purple-400 to-pink-500 text-black font-semibold px-4 py-2 rounded-full transform transition-transform duration-300 hover:scale-105">
+          <button className=" md:inline bg-gradient-to-r from-purple-400 to-pink-500 font-semibold text-black  px-4 py-2 rounded-full transform transition-transform duration-300 hover:scale-105">
             Contact With Me
           </button>
           </a>
           <a href={Resume} download>
-          <button className="md:inline bg-gradient-to-r from-purple-400 to-pink-500 text-black font-semibold px-4 py-2 rounded-full transform transition-transform duration-300 hover:scale-105">
+          <button className="md:inline bg-gradient-to-r from-purple-400 to-pink-500 font-semibold text-black f px-4 py-2 rounded-full transform transition-transform duration-300 hover:scale-105">
             Resume
           </button>
           </a>
