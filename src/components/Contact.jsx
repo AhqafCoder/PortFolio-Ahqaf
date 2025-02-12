@@ -22,10 +22,10 @@ const Contact = () => {
 
   return (
     <div className="border-gray-700 min-h-screen bg-[url('./assets/bg1.jpg')] text-gray-300 flex flex-col items-center justify-center px-6 py-12" id="contact">
-      <hr className="w-full border-gray-700 my-6" />
-      <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">Get in Touch</h1>
-      <p className="text-gray-400 mb-8 text-center">
-        Feel free to reach out for collaborations, projects, or just a chat!
+      
+      <h1 className="text-3xl md:text-6xl font-bold text-white mb-8">Get in Touch</h1>
+      <p className="text-gray-400 mb-16 text-center">
+        🚀 Looking for a developer to bring your ideas to life? Drop me a message and let's build something great together!
       </p>
 
       <div className="w-full max-w-3xl bg-black p-8 rounded-lg shadow-lg border-gray-700">
@@ -70,7 +70,7 @@ const Contact = () => {
 
             <button 
               type="submit" 
-              className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 rounded-md transition duration-300"
+              className="w-full bg-gradient-to-r from-purple-400 to-pink-500 text-black font-semibold py-3 rounded-md transition duration-300"
             >
               Send Message
             </button>

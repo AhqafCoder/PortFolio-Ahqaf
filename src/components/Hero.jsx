@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import HeroImage from '../assets/myinstadp.jpg';
 import BgImage from '../assets/bg.png'; // Import background image directly
+import Resume from '../assets/Resume.pdf';
 
 const Hero = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -23,7 +24,7 @@ const Hero = () => {
       <div className="w-full lg:w-1/2 text-center lg:text-left p-6 relative z-10">
         <h1 className="text-4xl lg:text-7xl font-bold">
           Welcome to <br />
-          <span className="mt-3 inline-block">My Site</span>
+          <span className="mt-3 inline-block">My PortFolio</span>
         </h1>
       </div>
 
@@ -48,12 +49,16 @@ const Hero = () => {
 
         {/* Buttons */}
         <div className="mt-6 space-y-4 space-x-4 lg:space-y-0 lg:space-x-4">
-          <button className=" md:inline bg-gradient-to-r from-purple-400 to-pink-500 text-black px-4 py-2 rounded-full transform transition-transform duration-300 hover:scale-105">
+          <a href="#contact">
+          <button className=" md:inline bg-gradient-to-r from-purple-400 to-pink-500 text-black font-semibold px-4 py-2 rounded-full transform transition-transform duration-300 hover:scale-105">
             Contact With Me
           </button>
-          <button className="md:inline bg-gradient-to-r from-purple-400 to-pink-500 text-black px-4 py-2 rounded-full transform transition-transform duration-300 hover:scale-105">
+          </a>
+          <a href={Resume} download>
+          <button className="md:inline bg-gradient-to-r from-purple-400 to-pink-500 text-black font-semibold px-4 py-2 rounded-full transform transition-transform duration-300 hover:scale-105">
             Resume
           </button>
+          </a>
           
         </div>
       </div>
