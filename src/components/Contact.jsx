@@ -80,19 +80,19 @@ const Contact = () => {
 
       {/* Social Links */}
       <div className="flex space-x-4 mt-8">
-        <a href="mailto:ahqafaliofficial@gmail.com" className="text-gray-400 hover:text-gray-200">
+        <a href="mailto:ahqafaliofficial@gmail.com" className="text-gray-400 hover:text-pink-400">
           <FaEnvelope size={24} />
         </a>
-        <a href="https://github.com/AhqafCoder" target="_blank" className="text-gray-400 hover:text-gray-200">
+        <a href="https://github.com/AhqafCoder" target="_blank" className="text-gray-400 hover:text-pink-400">
           <FaGithub size={24} />
         </a>
-        <a href="https://www.linkedin.com/in/ahqaf-ali/" target="_blank" className="text-gray-400 hover:text-gray-200">
+        <a href="https://www.linkedin.com/in/ahqaf-ali/" target="_blank" className="text-gray-400 hover:text-pink-400">
           <FaLinkedin size={24} />
         </a>
-        <a href="https://www.instagram.com/ahqafali0403/" target="_blank" className="text-gray-400 hover:text-gray-200">
+        <a href="https://www.instagram.com/ahqafali0403/" target="_blank" className="text-gray-400 hover:text-pink-400">
           <FaInstagram size={24} />
         </a>
-        <a href="tel:+917084089921" className="text-gray-400 hover:text-gray-200">
+        <a href="tel:+917084089921" className="text-gray-400 hover:text-pink-400">
           <FaPhone size={24} />
         </a>
       </div>
