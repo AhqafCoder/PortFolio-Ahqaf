@@ -17,7 +17,7 @@ const Footer = () => {
               placeholder="Enter your email" 
               className="p-2 w-64 rounded-l-lg bg-gray-800 text-white border border-gray-600 focus:outline-none"
             />
-            <button className="bg-blue-500 text-white px-4 py-2 rounded-r-lg hover:bg-blue-600">
+            <button className="bg-gradient-to-r from-purple-400 to-pink-500 text-black font-semibold px-4 py-2 rounded-r-lg hover:bg-blue-600">
               Subscribe
             </button>
           </div>
@@ -39,10 +39,10 @@ const Footer = () => {
           <div className="mb-6 md:mb-0">
             <h3 className="text-lg font-semibold text-white">Quick Links</h3>
             <ul className="mt-2 space-y-2">
-              <li><a href="#projects" className="hover:text-blue-400">Projects</a></li>
-              <li><a href="#about" className="hover:text-blue-400">About Me</a></li>
-              <li><a href="#contact" className="hover:text-blue-400">Contact</a></li>
-              <li><a href="#services" className="hover:text-blue-400">Services</a></li>
+              <li><a href="#projects" className="hover:text-pink-400">Projects</a></li>
+              <li><a href="#about" className="hover:text-pink-400">About Me</a></li>
+              <li><a href="#contact" className="hover:text-pink-400">Contact</a></li>
+              <li><a href="#services" className="hover:text-pink-400">Services</a></li>
             </ul>
           </div>
 
@@ -63,13 +63,13 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold text-white">Follow Me</h3>
             <div className="flex space-x-4 mt-2">
-              <a href="https://github.com/AhqafCoder" target="_blank" rel="noopener noreferrer" className="hover:text-white">
+              <a href="https://github.com/AhqafCoder" target="_blank" rel="noopener noreferrer" className="hover:text-pink-400">
                 <FaGithub size={22} />
               </a>
-              <a href="https://www.linkedin.com/in/ahqaf-ali/" target="_blank" rel="noopener noreferrer" className="hover:text-white">
+              <a href="https://www.linkedin.com/in/ahqaf-ali/" target="_blank" rel="noopener noreferrer" className="hover:text-pink-400">
                 <FaLinkedin size={22} />
               </a>
-              <a href="https://www.instagram.com/ahqafali0403/" target="_blank" rel="noopener noreferrer" className="hover:text-white">
+              <a href="https://www.instagram.com/ahqafali0403/" target="_blank" rel="noopener noreferrer" className="hover:text-pink-400">
                 <FaInstagram size={22} />
               </a>
             </div>
