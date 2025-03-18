@@ -14,7 +14,7 @@ const Hero = () => {
     <div className="flex flex-col min-h-screen" >
       
 
-     <div className="relative text-white py-12 flex flex-col lg:flex-row justify-center items-center min-h-screen px-6 lg:px-12 overflow-hidden"
+     <div className="relative text-white py-12 mt-0 flex flex-col lg:flex-row justify-center items-center min-h-screen px-6 lg:px-12 overflow-hidden"
        on MouseMove={handleMouseMove}
        style={{ backgroundImage: `url(${BgImage})`, backgroundSize: "cover", backgroundPosition: "center" }}
      >
