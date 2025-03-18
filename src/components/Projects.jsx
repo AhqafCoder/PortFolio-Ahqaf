@@ -4,13 +4,31 @@ import indiimage from '../assets/image.png';
 import cweb from '../assets/image2.png';
 import portfolio from '../assets/image1.png';
 import docsmart from '../assets/image3.png';
+import ezcode from '../assets/ezcode.png';
+import showershealing from '../assets/showershealing.png';
 
 const projects = [
+  {
+    name: "Healing Website",
+    description: "It's my first Paid Foreign Client Project. I have designed and developed this website for a client from the LONDON, UK.😎",
+    link: "https://showershealing.com/",
+    source: "https://github.com/AhqafCoder/DivineEnergyFlow",
+    image: showershealing,
+    date: "- 1 March, 2025",
+  },
+  {
+    name: "EZ Code Website",
+    description: "EZ Code is a platform for learning programming languages, algorithms, and data structures through interactive coding challenges.",
+    link: "https://portfolio-ahqaf.onrender.com/",
+    source: "https://github.com/AhqafCoder/ezcode",
+    image: ezcode,
+    date: "- 15 Feb, 2025",
+  },
   {
     name: "Portfolio Website",
     description: "My personal portfolio showcasing my skills, experience, and projects.",
     link: "https://portfolio-ahqaf.onrender.com/",
-    source: "https://github.com/AhqafCoder/PortFolio-Ahqaf",
+    source: "https://www.ahqafali.site/",
     image: portfolio,
     date: "- 5 Feb, 2025",
   },
