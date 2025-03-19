@@ -59,7 +59,7 @@ const Navbar = () => {
                 <div className='hidden md:flex items-center'>
                     <a href="#contact">
                         <button className='bg-gradient-to-r from-purple-400 to-pink-500 text-black font-semibold px-4 py-2 rounded-full transform transition-all duration-300 hover:scale-105 hover:shadow-md text-sm lg:text-base'>
-                            Connect Me
+                            Connect Me 
                         </button>
                     </a>
                 </div>
