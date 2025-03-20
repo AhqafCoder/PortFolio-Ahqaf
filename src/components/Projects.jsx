@@ -20,7 +20,7 @@ const projects = [
   {
     name: "EZ Code Website",
     description: "EZ Code is a platform for learning programming languages, algorithms, and data structures through interactive coding challenges.",
-    link: "https://portfolio-ahqaf.onrender.com/",
+    link: "https://ezcode-xi.vercel.app/",
     source: "https://github.com/AhqafCoder/ezcode",
     image: ezcode,
     date: "- 15 Feb, 2025",
