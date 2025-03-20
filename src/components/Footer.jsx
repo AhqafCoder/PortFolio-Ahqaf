@@ -1,20 +1,32 @@
 import React from "react";
+import { motion } from "framer-motion"; // Import Framer Motion for animations
 import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope, FaPhone } from "react-icons/fa";
+
+// Blinking heart animation
+const heartVariants = {
+  blink: {
+    opacity: [1, 0, 1], // Fade in and out
+    transition: {
+      duration: 2, // Duration of one full blink cycle
+      repeat: Infinity, // Loop indefinitely
+      ease: "easeInOut", // Smooth easing
+    },
+  },
+};
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-[url('./assets/bg2.jpg')] text-gray-300 py-10 ">
+    <footer className="w-full bg-[url('./assets/bg2.jpg')] text-gray-300 py-10">
       <hr className="w-full border-gray-700 my-6" />
       <div className="max-w-6xl mx-auto flex flex-col items-center px-6">
-        
         {/* Newsletter Signup at the Top */}
         <div className="w-full text-center mb-6">
           <h3 className="text-lg font-semibold text-white">Subscribe to my Newsletter</h3>
           <p className="text-sm text-gray-400 mt-2">Get updates on my latest projects and blogs.</p>
           <div className="mt-4 flex justify-center">
-            <input 
-              type="email" 
-              placeholder="Enter your email" 
+            <input
+              type="email"
+              placeholder="Enter your email"
               className="p-2 w-64 rounded-l-lg bg-gray-800 text-white border border-gray-600 focus:outline-none"
             />
             <button className="bg-gradient-to-r from-purple-400 to-pink-500 text-black font-semibold px-4 py-2 rounded-r-lg hover:bg-blue-600">
@@ -28,11 +40,13 @@ const Footer = () => {
 
         {/* Footer Content */}
         <div className="w-full flex flex-col md:flex-row justify-between items-start">
-          
-          {/* Brand & Copyright */}
+          {/* Brand & Tagline */}
           <div className="mb-6 md:mb-0">
             <h2 className="text-xl font-bold text-white">Ahqaf Ali</h2>
-            <p className="text-sm mt-2">&copy; {new Date().getFullYear()} All rights reserved.</p>
+            <p className="text-sm mt-2">Full-Stack Developer & Server Engineer</p>
+            <p className="text-sm">Building the future, one project at a time.</p>
+            <p className="text-sm">Passionate about gaming, AI, and hardware.</p>
+            <p className="text-sm mt-2">© {new Date().getFullYear()} All rights reserved.</p>
           </div>
 
           {/* Quick Links */}
@@ -74,6 +88,29 @@ const Footer = () => {
               </a>
             </div>
           </div>
+        </div>
+
+        {/* Separator Line */}
+        <hr className="w-full border-gray-700 my-6" />
+
+        {/* Made with Love */}
+        <div className="text-center text-sm">
+          <p>
+            Made with{" "}
+            <motion.span
+              className="inline-block text-red-500"
+              animate="blink" // Directly use animate to trigger the animation
+              variants={heartVariants}
+            >
+              ❤️
+            </motion.span>{" "}
+            by
+            <a href="https://github.com/AhqafCoder" target="_blank" rel="noopener noreferrer" className="hover:text-white">
+            <span className="ml-1">AhqafCoder </span>
+           </a>
+           
+
+          </p>
         </div>
       </div>
     </footer>
