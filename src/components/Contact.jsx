@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope, FaPhone } from "react-icons/fa";
+import Bg2Image from "../assets/bg2.jpg"
+
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -21,7 +23,15 @@ const Contact = () => {
   };
 
   return (
-    <div className="border-gray-700 min-h-screen bg-[url('./assets/bg1.jpg')] text-gray-300 flex flex-col items-center justify-center px-6 py-12" id="contact">
+    <div className="border-gray-700 min-h-screen bg-[url('./assets/bg1.jpg')] text-gray-300 flex flex-col items-center justify-center px-6 py-12" id="contact"
+      style={{
+                     backgroundImage: `url(${Bg2Image})`,
+                     backgroundSize: "cover",
+                     backgroundPosition: "center",
+                   }}
+    
+    
+    >
       
       <h1 className="text-3xl md:text-6xl font-bold text-white mb-8">Get in Touch</h1>
       <p className="text-gray-400 mb-16 text-center">

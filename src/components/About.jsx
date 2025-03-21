@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion"; // Import Framer Motion for animations
 import AboutPage from "../assets/myimage2.jpg";
+import Bg1Image from "../assets/bg1.jpg"
 
 const About = () => {
   // Floating animation for the profile image (same as in Hero section)
@@ -39,9 +40,16 @@ const About = () => {
 
   return (
     <div
-      className="min-h-screen bg-[url('./assets/bg1.jpg')] text-white flex flex-col lg:flex-row items-center justify-center px-6 lg:px-20 py-12"
-      id="about"
+     className="min-h-screen bg-cover bg-center bg-no-repeat text-white flex flex-col lg:flex-row items-center justify-center px-6 lg:px-20 py-12"
+     style={{
+               backgroundImage: `url(${Bg1Image})`,
+               backgroundSize: "cover",
+               backgroundPosition: "center",
+             }}
+           
+     id="about"
     >
+
       {/* Image Section */}
       <div className="flex justify-center items-center">
         <motion.img
