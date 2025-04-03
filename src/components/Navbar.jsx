@@ -21,6 +21,25 @@ const Navbar = () => {
         { href: '#contact', label: 'Contact' },
     ];
 
+    // Smooth scroll handler
+    const handleSmoothScroll = (e, href) => {
+        e.preventDefault();
+        if (href.startsWith('#')) {
+            const targetId = href.substring(1);
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        } else {
+            // For regular links (like '/'), use default navigation
+            window.location.href = href;
+        }
+        setMenuOpen(false); // Close mobile menu if open
+    };
+
     return (
         <nav 
             className={`fixed top-0 left-0 right-0 z-50 text-white px-4 py-3 sm:px-6 md:px-12 lg:px-24 transition-all duration-300 ${
@@ -28,7 +47,7 @@ const Navbar = () => {
                     ? 'bg-black/70 backdrop-blur-md shadow-md' 
                     : 'bg-black shadow-md'
             }`}
-            style={{ position: 'fixed' }} // Inline style as fallback
+            style={{ position: 'fixed' }}
         >
             <div className='container mx-auto flex justify-between items-center max-w-7xl'>
                 {/* Logo */}
@@ -46,6 +65,7 @@ const Navbar = () => {
                                 key={item.label}
                                 href={item.href} 
                                 className='relative text-white px-3 py-2 text-sm lg:text-base group'
+                                onClick={(e) => handleSmoothScroll(e, item.href)}
                             >
                                 <span className='relative z-10'>{item.label}</span>
                                 <span className='absolute bottom-0 left-0 w-full h-0.5 bg-white/80 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-out'></span>
@@ -53,13 +73,11 @@ const Navbar = () => {
                             </a>
                         ))}
                     </div>
-                    
-                    
                 </div>
 
                 {/* Desktop Button */}
                 <div className='hidden md:flex items-center'>
-                    <a href="#contact">
+                    <a href="#contact" onClick={(e) => handleSmoothScroll(e, '#contact')}>
                         <button className='bg-gradient-to-r from-purple-400 to-pink-500 text-black font-semibold px-4 py-2 rounded-full transform transition-all duration-300 hover:scale-105 hover:shadow-md text-sm lg:text-base'>
                             Connect Me 
                         </button>
@@ -87,13 +105,13 @@ const Navbar = () => {
                                 key={item.label}
                                 href={item.href} 
                                 className='relative text-white px-6 py-2 w-full text-center text-sm sm:text-base group'
-                                onClick={() => setMenuOpen(false)}
+                                onClick={(e) => handleSmoothScroll(e, item.href)}
                             >
                                 <span className='relative z-10'>{item.label}</span>
                                 <span className='absolute bottom-0 left-0 w-full h-0.5 bg-white/80 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-out'></span>
                             </a>
                         ))}
-                        <a href="#contact" onClick={() => setMenuOpen(false)}>
+                        <a href="#contact" onClick={(e) => handleSmoothScroll(e, '#contact')}>
                             <button className='bg-gradient-to-r from-purple-400 to-pink-500 text-black font-semibold px-6 py-2 rounded-full w-full text-sm sm:text-base transition-shadow hover:shadow-md'>
                                 Connect Me
                             </button>

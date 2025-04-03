@@ -1,42 +1,44 @@
 import React from "react";
-import { motion } from "framer-motion"; // Import Framer Motion for animations
+import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope, FaPhone } from "react-icons/fa";
 
 // Blinking heart animation
 const heartVariants = {
   blink: {
-    opacity: [1, 0, 1], // Fade in and out
+    opacity: [1, 0, 1],
     transition: {
-      duration: 2, // Duration of one full blink cycle
-      repeat: Infinity, // Loop indefinitely
-      ease: "easeInOut", // Smooth easing
+      duration: 2,
+      repeat: Infinity,
+      ease: "easeInOut",
     },
   },
 };
 
 const Footer = () => {
+  // Smooth scroll handler
+  const handleSmoothScroll = (e, href) => {
+    e.preventDefault();
+    if (href.startsWith('#')) {
+      const targetId = href.substring(1);
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    } else {
+      window.location.href = href;
+    }
+  };
+
   return (
     <footer className="w-full bg-[url('./assets/bg2.jpg')] text-gray-300 py-10">
       <hr className="w-full border-gray-700 my-6" />
       <div className="max-w-6xl mx-auto flex flex-col items-center px-6">
-        {/* Newsletter Signup at the Top */}
-        <div className="w-full text-center mb-6">
-          <h3 className="text-lg font-semibold text-white">Subscribe to my Newsletter</h3>
-          <p className="text-sm text-gray-400 mt-2">Get updates on my latest projects and blogs.</p>
-          <div className="mt-4 flex justify-center">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="p-2 w-64 rounded-l-lg bg-gray-800 text-white border border-gray-600 focus:outline-none"
-            />
-            <button className="bg-gradient-to-r from-purple-400 to-pink-500 text-black font-semibold px-4 py-2 rounded-r-lg hover:bg-blue-600">
-              Subscribe
-            </button>
-          </div>
-        </div>
+        
 
-        {/* Separator Line */}
-        <hr className="w-full border-gray-700 my-6" />
+       
 
         {/* Footer Content */}
         <div className="w-full flex flex-col md:flex-row justify-between items-start">
@@ -53,10 +55,42 @@ const Footer = () => {
           <div className="mb-6 md:mb-0">
             <h3 className="text-lg font-semibold text-white">Quick Links</h3>
             <ul className="mt-2 space-y-2">
-              <li><a href="#projects" className="hover:text-pink-400">Projects</a></li>
-              <li><a href="#about" className="hover:text-pink-400">About Me</a></li>
-              <li><a href="#contact" className="hover:text-pink-400">Contact</a></li>
-              <li><a href="#services" className="hover:text-pink-400">Services</a></li>
+              <li>
+                <a 
+                  href="#projects" 
+                  className="hover:text-pink-400" 
+                  onClick={(e) => handleSmoothScroll(e, '#projects')}
+                >
+                  Projects
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="#about" 
+                  className="hover:text-pink-400" 
+                  onClick={(e) => handleSmoothScroll(e, '#about')}
+                >
+                  About Me
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="#contact" 
+                  className="hover:text-pink-400" 
+                  onClick={(e) => handleSmoothScroll(e, '#contact')}
+                >
+                  Contact
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="#services" 
+                  className="hover:text-pink-400" 
+                  onClick={(e) => handleSmoothScroll(e, '#services')}
+                >
+                  Services
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -87,31 +121,27 @@ const Footer = () => {
                 <FaInstagram size={22} />
               </a>
             </div>
+            {/* Made with Love - Moved here */}
+            <div className="text-sm mt-18">
+              <p>
+                Made with{" "}
+                <motion.span
+                  className="inline-block text-red-500"
+                  animate="blink"
+                  variants={heartVariants}
+                >
+                  ❤️
+                </motion.span>{" "}
+                by
+                <a href="https://github.com/AhqafCoder" target="_blank" rel="noopener noreferrer" className="hover:text-white">
+                  <span className="ml-1">AhqafCoder</span>
+                </a>
+              </p>
+            </div>
           </div>
         </div>
 
-        {/* Separator Line */}
-        <hr className="w-full border-gray-700 my-6" />
-
-        {/* Made with Love */}
-        <div className="text-center text-sm">
-          <p>
-            Made with{" "}
-            <motion.span
-              className="inline-block text-red-500"
-              animate="blink" // Directly use animate to trigger the animation
-              variants={heartVariants}
-            >
-              ❤️
-            </motion.span>{" "}
-            by
-            <a href="https://github.com/AhqafCoder" target="_blank" rel="noopener noreferrer" className="hover:text-white">
-            <span className="ml-1">AhqafCoder </span>
-           </a>
-           
-
-          </p>
-        </div>
+        
       </div>
     </footer>
   );
