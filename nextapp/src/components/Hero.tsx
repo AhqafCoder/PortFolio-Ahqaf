@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Github, Linkedin, Mail, Download, ExternalLink } from "lucide-react"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import Image from "next/image"
 
 export default function Hero() {
   const downloadResume = () => {
@@ -102,16 +102,16 @@ export default function Hero() {
             <div className="absolute inset-0 bg-gradient-to-r from-zinc-600 to-zinc-800 rounded-full blur-xl opacity-20 scale-110 animate-pulse"></div>
             
             {/* Main avatar */}
-            <Avatar className="w-80 h-80 border-4 border-zinc-700 relative z-10">
-              <AvatarImage 
-                src="profile-image.jpg" // You'll need to add your profile image to the public folder
+            <div className="relative w-80 h-80 border-4 border-zinc-700 rounded-full overflow-hidden z-10">
+              <Image 
+                src="/profile-image.jpg"
                 alt="Ahqaf Ali"
+                fill
+                priority
                 className="object-cover"
+                sizes="(max-width: 768px) 100vw, 320px"
               />
-              <AvatarFallback className="text-6xl bg-gradient-to-br from-zinc-700 to-zinc-900">
-                AA
-              </AvatarFallback>
-            </Avatar>
+            </div>
           </div>
         </div>
       </div>
