@@ -49,108 +49,108 @@ export default function Navigation() {
   }
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      isScrolled 
-        ? 'bg-black/80 backdrop-blur-md border-b border-zinc-800/50' 
-        : 'bg-transparent'
-    }`}>
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <button 
-            onClick={() => scrollToSection("#home")}
-            className="text-xl font-bold tracking-tight hover:text-zinc-300 transition-colors"
-          >
-            Ahqaf Ali
-          </button>
+    <nav className="fixed top-0 w-full z-50 px-6 py-6">
+      <div className="max-w-7xl mx-auto flex items-center justify-between">
+        {/* Logo - Left */}
+        <button 
+          onClick={() => scrollToSection("#home")}
+          className="text-lg font-bold tracking-tight text-white hover:text-zinc-300 transition-colors"
+        >
+          
+        </button>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+        {/* Navigation Items - Right (Grouped in rounded container) */}
+        <div 
+          className={`hidden md:flex items-center gap-1 px-2 py-2 rounded-full transition-all duration-300 ${
+            isScrolled 
+              ? 'bg-black/40 border border-white/20' 
+              : 'bg-black/30 border border-white/15'
+          }`}
+          style={{ backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)' }}
+        >
+          {navItems.map((item) => (
+            <button
+              key={item.name}
+              onClick={() => scrollToSection(item.href)}
+              className={`px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 ${
+                activeSection === item.href.substring(1)
+                  ? 'text-black bg-white'
+                  : 'text-white hover:text-zinc-300'
+              }`}
+            >
+              {item.name}
+            </button>
+          ))}
+          
+          <Button 
+            variant="ghost" 
+            size="sm"
+            onClick={() => {
+              const link = document.createElement('a')
+              link.href = '/Resume.pdf'
+              link.download = 'Ahqaf_Ali_Resume.pdf'
+              document.body.appendChild(link)
+              link.click()
+              document.body.removeChild(link)
+            }}
+            className="ml-1 text-white hover:text-zinc-300 hover:bg-white/10"
+          >
+            Resume
+          </Button>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <div className="md:hidden">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setIsOpen(!isOpen)}
+            className="text-white hover:text-zinc-300 hover:bg-white/10 rounded-full"
+          >
+            {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </Button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div className="md:hidden mt-4 mx-6">
+          <div className="px-4 py-4 space-y-1 bg-black/70 backdrop-blur-xl border border-white/10 rounded-3xl">
             {navItems.map((item) => (
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className={`text-sm font-medium transition-colors hover:text-zinc-300 ${
+                className={`block w-full text-left px-4 py-2.5 text-sm font-medium rounded-full transition-all duration-200 ${
                   activeSection === item.href.substring(1)
-                    ? 'text-white'
-                    : 'text-zinc-400'
+                    ? 'text-black bg-white'
+                    : 'text-white hover:text-zinc-300 hover:bg-white/10'
                 }`}
               >
                 {item.name}
               </button>
             ))}
             
-            {/* Resume Button */}
-            <Button 
-              variant="outline" 
-              size="sm"
-              onClick={() => {
-                const link = document.createElement('a')
-                link.href = '/Resume.pdf'
-                link.download = 'Ahqaf_Ali_Resume.pdf'
-                document.body.appendChild(link)
-                link.click()
-                document.body.removeChild(link)
-              }}
-              className="border-zinc-600 hover:bg-zinc-800"
-            >
-              Resume
-            </Button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-zinc-400 hover:text-white"
-            >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </Button>
-          </div>
-        </div>
-
-        {/* Mobile Menu */}
-        {isOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-black/95 backdrop-blur-md border-t border-zinc-800/50">
-              {navItems.map((item) => (
-                <button
-                  key={item.name}
-                  onClick={() => scrollToSection(item.href)}
-                  className={`block w-full text-left px-3 py-2 text-base font-medium rounded-md transition-colors hover:bg-zinc-800/50 ${
-                    activeSection === item.href.substring(1)
-                      ? 'text-white bg-zinc-800/30'
-                      : 'text-zinc-400'
-                  }`}
-                >
-                  {item.name}
-                </button>
-              ))}
-              
-              <div className="pt-2">
-                <Button 
-                  variant="outline" 
-                  size="sm"
-                  onClick={() => {
-                    const link = document.createElement('a')
-                    link.href = '/Resume.pdf'
-                    link.download = 'Ahqaf_Ali_Resume.pdf'
-                    document.body.appendChild(link)
-                    link.click()
-                    document.body.removeChild(link)
-                    setIsOpen(false)
-                  }}
-                  className="w-full border-zinc-600 hover:bg-zinc-800"
-                >
-                  Download Resume
-                </Button>
-              </div>
+            <div className="pt-2 mt-2 border-t border-white/10">
+              <Button 
+                variant="ghost" 
+                size="sm"
+                onClick={() => {
+                  const link = document.createElement('a')
+                  link.href = '/Resume.pdf'
+                  link.download = 'Ahqaf_Ali_Resume.pdf'
+                  document.body.appendChild(link)
+                  link.click()
+                  document.body.removeChild(link)
+                  setIsOpen(false)
+                }}
+                className="w-full text-white hover:text-zinc-300 hover:bg-white/10 rounded-full"
+              >
+                Download Resume
+              </Button>
             </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </nav>
   )
 }

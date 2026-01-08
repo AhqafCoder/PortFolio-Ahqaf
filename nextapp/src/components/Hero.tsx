@@ -21,7 +21,7 @@ export default function Hero() {
   }
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-6 py-20 bg-gradient-to-br from-background via-background to-zinc-950/50">
+    <section className="min-h-screen bg-transparent flex items-center justify-center px-6 py-20">
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Text Content */}
         <div className="space-y-8 text-center lg:text-left">
@@ -104,7 +104,7 @@ export default function Hero() {
             {/* Main avatar */}
             <Avatar className="w-80 h-80 border-4 border-zinc-700 relative z-10">
               <AvatarImage 
-                src="/profile-image.jpg" // You'll need to add your profile image to the public folder
+                src="profile-image.jpg" // You'll need to add your profile image to the public folder
                 alt="Ahqaf Ali"
                 className="object-cover"
               />
