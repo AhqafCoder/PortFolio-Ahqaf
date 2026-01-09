@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Github, Linkedin, Mail, Download, ExternalLink } from "lucide-react"
 import Image from "next/image"
+import { motion } from "framer-motion"
 
 export default function Hero() {
   const downloadResume = () => {
@@ -20,11 +21,52 @@ export default function Hero() {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' })
   }
 
+  // Animation variants for text content
+  const textVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut",
+        staggerChildren: 0.2
+      }
+    }
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  }
+
+  // Animation variants for image
+  const imageVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut"
+      }
+    }
+  }
+
   return (
     <section className="min-h-screen bg-transparent flex items-center justify-center px-4 md:px-6 py-12 md:py-20">
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
         {/* Profile Image - Shows first on mobile, second on desktop */}
-        <div className="flex justify-center lg:justify-end order-1 lg:order-2">
+        <motion.div 
+          className="flex justify-center lg:justify-end order-1 lg:order-2"
+          variants={imageVariants}
+          initial="hidden"
+          animate="visible"
+        >
           <div className="relative">
             {/* Decorative background */}
             <div className="absolute inset-0 bg-gradient-to-r from-zinc-600 to-zinc-800 rounded-full blur-xl opacity-20 scale-110 animate-pulse"></div>
@@ -41,11 +83,16 @@ export default function Hero() {
               />
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Text Content - Shows second on mobile, first on desktop */}
-        <div className="space-y-6 md:space-y-8 text-center lg:text-left order-2 lg:order-1">
-          <div className="space-y-3 md:space-y-4">
+        <motion.div 
+          className="space-y-6 md:space-y-8 text-center lg:text-left order-2 lg:order-1"
+          variants={textVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <motion.div className="space-y-3 md:space-y-4" variants={itemVariants}>
             <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
               <Badge variant="outline" className="border-zinc-600 text-xs">
                 Full-Stack Developer
@@ -69,10 +116,13 @@ export default function Hero() {
               Results-driven Full-Stack Developer with 800+ GitHub contributions, hackathon winner, 
               and expertise in scalable web applications using Next.js, React, Node.js, and cloud platforms.
             </p>
-          </div>
+          </motion.div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center lg:justify-start">
+          <motion.div 
+            className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center lg:justify-start"
+            variants={itemVariants}
+          >
             <Button 
               size="lg" 
               onClick={() => scrollToSection('projects')}
@@ -91,10 +141,13 @@ export default function Hero() {
               Download Resume
               <Download className="ml-2 h-4 w-4" />
             </Button>
-          </div>
+          </motion.div>
 
           {/* Social Links */}
-          <div className="flex gap-3 md:gap-4 justify-center lg:justify-start">
+          <motion.div 
+            className="flex gap-3 md:gap-4 justify-center lg:justify-start"
+            variants={itemVariants}
+          >
             <Button variant="ghost" size="icon" asChild>
               <a href="https://github.com/AhqafCoder" target="_blank" rel="noopener noreferrer">
                 <Github className="h-5 w-5" />
@@ -112,8 +165,8 @@ export default function Hero() {
                 <Mail className="h-5 w-5" />
               </a>
             </Button>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   )
