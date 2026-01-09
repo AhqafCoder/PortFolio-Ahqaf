@@ -6,7 +6,11 @@ import { Github, Linkedin, Mail, Download, ExternalLink } from "lucide-react"
 import Image from "next/image"
 import { motion } from "framer-motion"
 
-export default function Hero() {
+interface HeroProps {
+  splashComplete: boolean
+}
+
+export default function Hero({ splashComplete }: HeroProps) {
   const downloadResume = () => {
     // Create a link element and trigger download
     const link = document.createElement('a')
@@ -29,7 +33,7 @@ export default function Hero() {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: "easeOut",
+        ease: "easeOut" as const,
         staggerChildren: 0.2
       }
     }
@@ -40,7 +44,7 @@ export default function Hero() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
+      transition: { duration: 0.6, ease: "easeOut" as const }
     }
   }
 
@@ -52,7 +56,7 @@ export default function Hero() {
       scale: 1,
       transition: {
         duration: 0.8,
-        ease: "easeOut"
+        ease: "easeOut" as const
       }
     }
   }
@@ -65,7 +69,7 @@ export default function Hero() {
           className="flex justify-center lg:justify-end order-1 lg:order-2"
           variants={imageVariants}
           initial="hidden"
-          animate="visible"
+          animate={splashComplete ? "visible" : "hidden"}
         >
           <div className="relative">
             {/* Decorative background */}
@@ -90,7 +94,7 @@ export default function Hero() {
           className="space-y-6 md:space-y-8 text-center lg:text-left order-2 lg:order-1"
           variants={textVariants}
           initial="hidden"
-          animate="visible"
+          animate={splashComplete ? "visible" : "hidden"}
         >
           <motion.div className="space-y-3 md:space-y-4" variants={itemVariants}>
             <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
