@@ -30,7 +30,7 @@ const hackathonWins = [
 ]
 
 const stats = [
-  { label: "Open Source Contributions", value: "800+", icon: "📊" },
+  { label: "Open Source Contributions", value: "1000+", icon: "📊" },
   { label: "Projects Shipped", value: "15+", icon: "🚀" },
   { label: "Hackathons Won", value: "3", icon: "🏆" },
   { label: "Communities Built", value: "2", icon: "👥" }
