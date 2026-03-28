@@ -19,10 +19,10 @@ export default function Footer() {
   const navLinks = ["Home", "About", "Experience", "Achievements", "Projects", "Contact"]
 
   const socialLinks = [
-    { name: "GitHub", url: "https://github.com/AhqafCoder", icon: "⌨️" },
-    { name: "LinkedIn", url: "https://linkedin.com/in/ahqafali", icon: "💼" },
-    { name: "Email", url: "mailto:ahqafaliofficial@gmail.com", icon: "✉️" },
-    { name: "Portfolio", url: "https://www.ahqafali.site", icon: "🌐" }
+    { name: "GitHub", url: "https://github.com/AhqafCoder", icon: "💻" },
+    { name: "LinkedIn", url: "https://linkedin.com/in/ahqafali", icon: "🔗" },
+    { name: "Email", url: "mailto:ahqafaliofficial@gmail.com", icon: "📧" },
+    { name: "Portfolio", url: "https://www.ahqafali.site", icon: "✨" }
   ]
 
   return (
@@ -137,7 +137,13 @@ export default function Footer() {
             © {new Date().getFullYear()} Ahqaf Ali. All rights reserved.
           </p>
 
-          <div className="flex items-center gap-6">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-6">
+            <div className="flex items-center gap-1">
+              <span className="text-white/50 text-xs font-medium">Made with</span>
+              <span className="text-red-500 text-sm">❤️</span>
+              <span className="text-white/50 text-xs font-medium">by ahqafcoder</span>
+            </div>
+            <span className="hidden sm:inline text-white/20">•</span>
             <span className="text-white/50 text-xs font-medium">
               Built with Next.js & Framer Motion
             </span>

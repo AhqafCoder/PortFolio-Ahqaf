@@ -8,6 +8,27 @@ import { StarsBackground } from "@/components/ui/stars-background"
 const projects = [
   {
     id: 1,
+    name: "SIH Aquasense Software",
+    description: "Smart India Hackathon winning software for real-time water quality monitoring with autonomous navigation and hyperspectral data collection & analysis.",
+    tech: ["IoT", "Real-time Processing", "Cloud", "Autonomous Systems"],
+    liveUrl: "#",
+    githubUrl: "https://github.com/AhqafCoder",
+    year: "2025",
+    featured: true
+  },
+  {
+    id: 2,
+    name: "AI Crop Recommendation System",
+    description: "Intelligent farming solution with 95% crop recommendation accuracy using soil & weather data. Features disease detection (90%), fertilizer optimization (87.5%), and profit prediction (92.3%) with farmer dashboard.",
+    tech: ["Machine Learning", "React", "Python", "TensorFlow"],
+    liveUrl: "#",
+    githubUrl: "https://github.com/AhqafCoder",
+    year: "2025",
+    featured: true
+  },
+  
+  {
+    id: 3,
     name: "OpenGeek Community Platform",
     description: "Developer community platform with modern UI, authentication, and scalable backend.",
     tech: ["Next.js", "Express", "Clerk", "PostgreSQL"],
@@ -17,7 +38,7 @@ const projects = [
     featured: true
   },
   {
-    id: 2,
+    id: 4,
     name: "InvertisPrep",
     description: "Gamified EdTech platform providing PYQs, notes, and learning tools. Hackathon winner.",
     tech: ["Next.js", "Node.js"],
@@ -27,7 +48,7 @@ const projects = [
     featured: true
   },
   {
-    id: 3,
+    id: 5,
     name: "Hostel Management System",
     description: "Full-stack system with role-based access for managing hostel operations.",
     tech: ["Next.js", "Express", "PostgreSQL"],
@@ -37,7 +58,7 @@ const projects = [
     featured: true
   },
   {
-    id: 4,
+    id: 6,
     name: "WhatsApp CRM Automation",
     description: "Automated CRM workflows using WhatsApp API and HubSpot via n8n.",
     tech: ["n8n", "APIs", "HubSpot"],
@@ -47,7 +68,7 @@ const projects = [
     featured: false
   },
   {
-    id: 5,
+    id: 7,
     name: "EZ Code Platform",
     description: "Interactive platform for learning coding and DSA.",
     tech: ["React", "Node.js"],
@@ -57,7 +78,7 @@ const projects = [
     featured: false
   },
   {
-    id: 6,
+    id: 8,
     name: "Healing Website",
     description: "Production-grade client project with complete UI/UX and deployment. UK Client.",
     tech: ["Next.js"],
@@ -67,7 +88,7 @@ const projects = [
     featured: true
   },
   {
-    id: 7,
+    id: 9,
     name: "CWeb Server",
     description: "Custom lightweight web framework for handling HTTP requests.",
     tech: ["Node.js"],
@@ -77,7 +98,7 @@ const projects = [
     featured: false
   },
   {
-    id: 8,
+    id: 10,
     name: "DocSmart",
     description: "Scalable document management system.",
     tech: ["Full-stack"],

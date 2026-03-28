@@ -8,6 +8,27 @@ import Image from "next/image"
 
 const projects = [
   {
+    name: "SIH Aquasense Software",
+    description: "Smart India Hackathon winning software for real-time water quality monitoring. Provides autonomous navigation for robotic platforms with hyperspectral data collection and analysis. Designed for scalable, portable water body monitoring systems.",
+    technologies: ["IoT", "Real-time Processing", "Data Analytics", "Cloud Integration", "Autonomous Systems"],
+    liveUrl: "#",
+    githubUrl: "https://github.com/AhqafCoder",
+    image: "/projects/sih-aquasense.png",
+    date: "2025",
+    featured: true
+  },
+  {
+    name: "AI Crop Recommendation System",
+    description: "Intelligent farming solution with 95% accuracy crop recommendation using soil nutrients & weather data. Features disease detection (90% accuracy), fertilizer optimization (87.5% accuracy), and profit prediction (92.3% accuracy). Includes personalized farmer dashboard with marketplace insights.",
+    technologies: ["Machine Learning", "React", "Node.js", "Python", "TensorFlow", "AgriTech"],
+    liveUrl: "#",
+    githubUrl: "https://github.com/AhqafCoder",
+    image: "/projects/ai-crop.png",
+    date: "2025",
+    featured: true
+  },
+  
+  {
     name: "OpenGeek Community App",
     description: "Developer community platform for collaboration, discussions, and resource sharing. Built with industry-grade UI & security, responsive across all devices with role-based authentication.",
     technologies: ["Next.js", "Express.js", "PostgreSQL", "Clerk Auth", "Tailwind CSS"],
