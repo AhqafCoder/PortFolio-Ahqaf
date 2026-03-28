@@ -1,0 +1,178 @@
+AHQAF ALI
+Full-Stack Developer | AI Enthusiast | Open Source Contributor
+
+Contact Information:
+- Email: ahqafaliofficial@gmail.com
+- Website: www.ahqafali.site
+- Phone: +91 7084089921
+- GitHub: https://github.com/AhqafCoder
+- LinkedIn: https://linkedin.com/in/ahqafali
+
+SUMMARY
+Results-driven Full-Stack Developer with expertise in building scalable web and mobile applications using Next.js, React, Node.js, Express, PostgreSQL, and cloud platforms (Google Cloud, Firebase, Supabase). Skilled in API development, third-party integrations, and secure authentication solutions (OAuth, Clerk, JWT). Experienced in rapid MVP development, AI-powered workflows, and startup-style product lifecycles—from concept to launch. Highly collaborative, adaptable, and committed to delivering high-impact, production-ready solutions under ambitious timelines.
+
+EDUCATION
+Bachelor of Technology in Computer Science
+Invertis University, Bareilly
+2024 - 2028
+
+Class XII - 74.62%
+R.P.M. ACADEMY, Civil lines, Gorakhpur
+2022 - 2023
+
+Class X - 85.20%
+R.P.M. ACADEMY, Civil lines, Gorakhpur
+2020 - 2021
+
+WORK EXPERIENCE
+
+OPENGEEK TECH COMMUNITY | Jun 2025 - Present
+- Developed a Social Media app with industry-grade UI & security for the community
+- Built responsive application compatible with all devices
+- Live: https://community.opengeek.in/
+
+INVERTISPREP (INVERTHON 2025) | Apr 2025 - Jul 2025
+- Developed a web application for university students to access previous year questions and notes
+- Implemented gamified learning experience to enhance user engagement
+- Live: https://www.invertisprep.in/
+
+Abhiruchi Active Member (I-TECH CLUB) | Sep 2024 - Jan 2025
+- Served as I-TECH club member, helping develop real-world tech skills
+- Contributed to tech management in university events
+- Collaborated with team members on various technical projects
+
+Discord Community Manager | Jun 2024 - Aug 2024
+- Managed Discord community (INDIPIXEL) for over a year with 400+ members
+- Developed strategies for community moderation, content creation, and user retention
+- Fostered engagement and community growth through events and discussions
+
+Java Game Development & Singapore Cloud Hosting | Apr 2024 - Jun 2024
+- Gained 3 months of experience in Java server hosting and cloud server hosting
+- Successfully set up and managed an online multiplayer arcade game server
+- Ensured stable uptime and technical support for users
+- Live: https://indipixel.online/
+
+TECHNICAL SKILLS
+
+Programming Languages:
+- JavaScript/TypeScript, Java, Python, HTML5, CSS3, SQL
+
+Frontend Development:
+- Next.js, React.js, Tailwind CSS, Responsive Design, UI/UX Design
+
+Backend Development:
+- Node.js, Express.js, REST API Development, Server Management
+
+Databases:
+- PostgreSQL, MySQL, MongoDB, Supabase, Firebase Firestore
+
+Cloud & DevOps:
+- Google Cloud Platform (GCP), Firebase, Vercel, Linux/VPS servers
+- CI/CD Pipelines, SSH Configuration, DNS & Domain Management
+
+Authentication & Security:
+- OAuth 2.0, Clerk, JWT, Firebase Auth, Google Cloud Console
+
+Development Tools:
+- Git, GitHub, VS Code, Docker, Postman
+
+AI & Emerging Tech:
+- Prompt Engineering, AI Integration, AI-powered Development Workflows
+
+PROJECTS
+
+1. Hostel Management Software (In Progress - Full-Stack)
+   - Comprehensive platform for hostel management with role-based access
+   - Technologies: Next.js, Express.js, PostgreSQL
+   - Features: Admin, Warden, and Student portals
+   - Code: https://github.com/AhqafCoder/HMS
+
+2. OpenGeek Community App
+   - Developer community platform for collaboration and resource sharing
+   - Technologies: Next.js, Express.js, Clerk authentication, PostgreSQL
+   - Live: https://community.opengeek.in
+   - Code: https://github.com/AhqafCoder/OPENGEEK
+
+3. OpenGeek Main Site
+   - Official website featuring events, resources, and community details
+   - Live: https://www.opengeek.in
+   - Code: https://github.com/AhqafCoder/OPENGEEK
+
+4. InvertisPrep App
+   - Educational platform with study materials, mock tests, and university updates
+   - Live: https://www.invertisprep.in
+   - Code: https://github.com/AhqafCoder/InvertisPrep
+
+5. Healing Website (Paid Client Project - London, UK)
+   - Professional wellness website for international client
+   - Complete UI/UX design and deployment
+   - Live: https://showershealing.com
+   - Code: https://github.com/AhqafCoder/DivineEnergyFlow
+
+6. EZ Code Platform (Full-Stack EdTech)
+   - Interactive coding platform for programming education
+   - Real-time coding challenges for algorithms and DSA
+   - Live: https://ezcode-xi.vercel.app
+   - Code: https://github.com/AhqafCoder/ezcode
+
+7. Portfolio Website
+   - Fully responsive personal portfolio showcasing skills and projects
+   - Live: https://www.ahqafali.site
+   - Code: https://github.com/AhqafCoder/PortFolio-Ahqaf
+
+8. CWeb Server (Custom Web Framework)
+   - Lightweight custom web framework for HTTP request handling
+   - Live: https://cweb-7pbz.onrender.com
+   - Code: https://github.com/AhqafCoder/CWEB
+
+9. DocSmart (Document Management System)
+   - Smart document storage and organization system
+   - Focus on scalability and efficient retrieval
+   - Code: https://github.com/AhqafCoder/DocSmart
+
+10. IndiPixel Website (Gaming Community)
+    - Interactive site for Minecraft server community
+    - Features game modes, updates, and community integration
+    - Live: https://www.indipixel.online
+    - Code: https://github.com/AhqafCoder/INDIPIXEL
+
+ACHIEVEMENTS
+
+🏆 Winner – INVERTHON 2025 (University-Level Hackathon)
+- Led team to victory developing innovative tech solution under tight deadlines
+- Demonstrated exceptional problem-solving and leadership skills
+
+🏆 Winner – TECHATHON 2024 (University-Level Hackathon)
+- Secured 1st place with cutting-edge full-stack development project
+- Showcased expertise in modern technologies
+
+🌟 Active Open Source Contributor on GitHub
+- 800+ open source contributions on GitHub
+- Helped working professionals with clean, optimized code
+- Contributed to MNIT CSE student projects
+- Notable contribution: https://github.com/shreesriv12/Marauders-map-2
+
+👥 Member, Google Developer Group (GDG), New Delhi
+- Active contributor to developer meetups and hands-on sessions
+- Collaborative projects within Google tech ecosystem
+
+🎤 Co-Host & Web Team Member – TEDx Invertis University
+- Co-hosted sessions and contributed to official TEDx event website
+- Improved attendee experience and event visibility
+
+📋 Organizing Committee – INSPIRE Science Bootcamp 2025
+- Planned and managed impactful science bootcamp
+- Handled technical operations and logistics
+
+🎮 Game Server Administration
+- Successfully hosted online multiplayer arcade game server
+- Ensured stable uptime and user engagement
+
+💻 Hardware & Server Management
+- Extensive experience in computer hardware repair and troubleshooting
+- Server setup and maintenance for reliable system performance
+
+CERTIFICATIONS & MEMBERSHIPS
+- Google Developer Group (GDG) Member, New Delhi
+- Active GitHub Open Source Contributor
+- TEDx Event Organizer and Web Team Member
