@@ -41,7 +41,7 @@ export default function Hero({ splashComplete }: HeroProps) {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
+      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }
     }
   }
 
@@ -51,7 +51,7 @@ export default function Hero({ splashComplete }: HeroProps) {
       opacity: 1,
       scale: 1,
       rotate: 0,
-      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
+      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const }
     }
   }
 

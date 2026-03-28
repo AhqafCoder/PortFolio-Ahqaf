@@ -20,6 +20,7 @@ export default function Home() {
       {/* Unified LaserFlow - Spans entire page */}
       <div className="fixed inset-0 w-full h-full pointer-events-none z-[1] mix-blend-screen">
         <LaserFlow
+          className=""
           style={{ width: '100%', height: '100%' }}
           dpr={1}
           color="#9ef9ff"
