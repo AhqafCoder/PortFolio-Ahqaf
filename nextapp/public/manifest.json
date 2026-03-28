@@ -1,0 +1,22 @@
+{
+  "name": "Ahqaf Ali - Portfolio",
+  "short_name": "Ahqaf Ali",
+  "description": "Full-Stack Developer and R&D Engineer specializing in AI, autonomous systems, and scalable tech products.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

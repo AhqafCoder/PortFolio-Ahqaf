@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect } from "react"
-import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 
 const navItems = [
@@ -85,7 +84,7 @@ export default function Navigation() {
           initial="hidden"
           animate="visible"
         >
-          {navItems.map((item, index) => (
+          {navItems.map((item) => (
             <motion.button
               key={item.name}
               onClick={() => scrollToSection(item.href)}
