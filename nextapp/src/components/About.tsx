@@ -1,154 +1,159 @@
 'use client'
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Separator } from "@/components/ui/separator"
-import { Code, Cpu, Database, Globe, GraduationCap, Award } from "lucide-react"
-
-const skills = [
-  { category: "Frontend", icon: Globe, items: ["Next.js", "React", "TypeScript", "Tailwind CSS", "JavaScript"] },
-  { category: "Backend", icon: Database, items: ["Node.js", "Express.js", "PostgreSQL", "MySQL", "REST APIs"] },
-  { category: "Database", icon: Database, items: ["PostgreSQL", "MySQL", "MongoDB", "Supabase", "Firebase"] },
-  { category: "Cloud & DevOps", icon: Cpu, items: ["Google Cloud", "Firebase", "Vercel", "Linux VPS", "CI/CD"] },
-  { category: "Auth & Security", icon: Code, items: ["OAuth 2.0", "Clerk", "JWT", "Firebase Auth", "Google Cloud Console"] }
-]
-
-const achievements = [
-  {
-    title: "Hackathon Winner (INVERTHON 2025 & TECHATHON 2024)",
-    description: "Won two university-level hackathons, leading teams to develop innovative tech solutions",
-    icon: Award
-  },
-  {
-    title: "800+ Open Source Contributions",
-    description: "Active GitHub contributor helping professionals and students with clean, optimized code",
-    icon: Code
-  },
-  {
-    title: "International Client Project",
-    description: "Successfully delivered a professional healing website for a client from London, UK",
-    icon: Globe
-  },
-  {
-    title: "Community Management & Leadership",
-    description: "Managed 400+ member Discord community and organized university tech events",
-    icon: Cpu
-  }
-]
+import { motion, useInView } from "framer-motion"
+import { useRef } from "react"
+import { ShootingStars } from "@/components/ui/shooting-stars"
+import { StarsBackground } from "@/components/ui/stars-background"
 
 export default function About() {
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true, margin: "-100px" })
+
   return (
-    <section id="about" className="py-20 px-6 bg-zinc-950/30">
-      <div className="max-w-6xl mx-auto space-y-12">
+    <section
+      id="about"
+      ref={ref}
+      className="relative py-24 md:py-32 overflow-hidden bg-black"
+    >
+      {/* Background */}
+      <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
+        <StarsBackground starDensity={0.00015} />
+        <ShootingStars starColor="#ffffff" trailColor="#666666" minSpeed={8} maxSpeed={20} />
+      </div>
+
+      {/* Dark overlay for better text readability */}
+      <div className="absolute inset-0 bg-black/20 z-[1]" />
+
+
+
+      <div className="relative z-10 max-w-5xl mx-auto px-6">
+
         {/* Header */}
-        <div className="text-center space-y-4">
-          <h2 className="text-4xl font-bold tracking-tight">About Me</h2>
-          <p className="text-xl text-zinc-400 max-w-3xl mx-auto">
-            I&apos;m a passionate Full-Stack Developer with a strong foundation in computer science 
-            and a love for creating innovative web solutions.
-          </p>
+        <div className="mb-16 md:mb-20">
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : {}}
+            className="text-white/50 text-xs tracking-[0.3em] uppercase mb-4 font-semibold"
+            style={{ textShadow: '0 2px 10px rgba(0,0,0,0.8)' }}
+          >
+            About Me
+          </motion.p>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.1 }}
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight"
+            style={{ textShadow: '0 4px 20px rgba(0,0,0,0.9)' }}
+          >
+            Builder. Problem-solver.
+            <br />
+            <span className="italic font-medium text-white/90">Innovation-driven.</span>
+          </motion.h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Personal Info */}
-          <Card className="bg-zinc-900/50 border-zinc-800">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <GraduationCap className="h-5 w-5" />
-                Background
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="space-y-3">
-                <div>
-                  <h4 className="font-semibold text-zinc-200">Education</h4>
-                  <p className="text-zinc-400">B.Tech in Computer Science</p>
-                  <p className="text-sm text-zinc-500">Invertis University, Bareilly (2024-2028)</p>
-                </div>
-                
-                <Separator className="bg-zinc-800" />
-                
-                <div>
-                  <h4 className="font-semibold text-zinc-200">Experience</h4>
-                  <p className="text-zinc-400">Full-Stack Developer & Community Manager</p>
-                  <p className="text-sm text-zinc-500">
-                    OpenGeek Tech Community, InvertisPrep, Game Server Management
-                  </p>
-                </div>
-                
-                <Separator className="bg-zinc-800" />
-                
-                <div>
-                  <h4 className="font-semibold text-zinc-200">Specializations</h4>
-                  <p className="text-zinc-400">MVP Development, AI Integration, Community Building</p>
-                  <p className="text-sm text-zinc-500">Google Developer Group Member, TEDx Organizer</p>
-                </div>
+        {/* Main Content */}
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20">
+
+          {/* Left - Main Bio */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.2 }}
+            className="lg:col-span-7 space-y-6"
+          >
+            <p
+              className="text-white text-lg md:text-xl leading-relaxed font-medium"
+              style={{ textShadow: '0 2px 15px rgba(0,0,0,0.8)' }}
+            >
+              I&apos;m a builder focused on creating real-world, high-impact systems that solve actual problems.
+            </p>
+
+            <p
+              className="text-white/90 text-base md:text-lg leading-relaxed font-normal"
+              style={{ textShadow: '0 2px 10px rgba(0,0,0,0.7)' }}
+            >
+              With strong expertise in full-stack development, AI workflows, and system design,
+              I actively work across software, robotics, IoT, and autonomous systems. I don&apos;t just
+              write code — I architect solutions.
+            </p>
+
+            <p
+              className="text-white/80 text-sm md:text-base leading-relaxed"
+              style={{ textShadow: '0 2px 10px rgba(0,0,0,0.7)' }}
+            >
+              Currently, I&apos;m leading R&D on a Hybrid VTOL Drone — integrating aerodynamics,
+              robotics, and AI for autonomous flight. Alongside this, I work as a Tech Associate
+              at the Invertis Incubation Center and contribute to an early-stage startup,
+              gaining hands-on experience building production-grade systems in fast-paced environments.
+            </p>
+
+            {/* Quote */}
+            <div className="pt-6 border-l-2 border-white/30 pl-6 bg-black/30 py-4 rounded-r-lg">
+              <p className="text-white/70 text-sm italic leading-relaxed font-medium">
+                &ldquo;From web apps to hybrid VTOL drones — I build what others only plan.&rdquo;
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Right - Quick Facts */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.3 }}
+            className="lg:col-span-5 space-y-8"
+          >
+            {/* Education */}
+            <div>
+              <p className="text-white/50 text-xs tracking-[0.2em] uppercase mb-4 font-semibold">Education</p>
+              <div className="p-5 border border-white/15 rounded-xl bg-black/50 backdrop-blur-sm">
+                <p className="text-white text-base font-semibold mb-1">B.Tech Computer Science</p>
+                <p className="text-white/70 text-sm font-medium">Invertis University</p>
+                <p className="text-white/50 text-xs mt-2 font-medium">2024 — 2028</p>
               </div>
-            </CardContent>
-          </Card>
+            </div>
 
-          {/* Achievements */}
-          <Card className="bg-zinc-900/50 border-zinc-800">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Award className="h-5 w-5" />
-                Key Achievements
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                {achievements.map((achievement, index) => {
-                  const Icon = achievement.icon
-                  return (
-                    <div key={index} className="flex gap-3">
-                      <div className="flex-shrink-0 w-8 h-8 bg-zinc-800 rounded-lg flex items-center justify-center">
-                        <Icon className="h-4 w-4 text-zinc-300" />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-zinc-200">{achievement.title}</h4>
-                        <p className="text-sm text-zinc-400">{achievement.description}</p>
-                      </div>
-                    </div>
-                  )
-                })}
+            {/* Location */}
+            <div>
+              <p className="text-white/50 text-xs tracking-[0.2em] uppercase mb-4 font-semibold">Based In</p>
+              <p className="text-white text-sm font-semibold">India</p>
+              <p className="text-white/60 text-xs mt-1 font-medium">Available for remote work worldwide</p>
+            </div>
+
+            {/* Focus Areas */}
+            <div>
+              <p className="text-white/50 text-xs tracking-[0.2em] uppercase mb-4 font-semibold">Focus Areas</p>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  "Full-Stack Development",
+                  "AI & Automation",
+                  "Autonomous Systems",
+                  "System Design"
+                ].map((area) => (
+                  <span
+                    key={area}
+                    className="text-white/80 text-xs px-3 py-1.5 border border-white/15 rounded-full bg-black/50 font-medium"
+                  >
+                    {area}
+                  </span>
+                ))}
               </div>
-            </CardContent>
-          </Card>
+            </div>
+
+            {/* Current Focus */}
+            <div className="p-5 border border-white/15 rounded-xl bg-black/50 backdrop-blur-sm">
+              <div className="flex items-center gap-2 mb-3">
+                <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+                <p className="text-white/60 text-xs tracking-[0.2em] uppercase font-semibold">Current R&D</p>
+              </div>
+              <p className="text-white text-sm font-semibold">Hybrid VTOL Drone</p>
+              <p className="text-white/60 text-xs mt-2 leading-relaxed font-medium">
+                Autonomous flight system with AI-based navigation, targeting completion by 2026.
+              </p>
+            </div>
+          </motion.div>
         </div>
 
-        {/* Skills Section */}
-        <div className="space-y-8">
-          <h3 className="text-2xl font-bold text-center">Technical Skills</h3>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-            {skills.map((skillGroup, index) => {
-              const Icon = skillGroup.icon
-              return (
-                <Card key={index} className="bg-zinc-900/50 border-zinc-800 hover:bg-zinc-900/70 transition-colors">
-                  <CardHeader className="pb-3">
-                    <CardTitle className="text-lg flex items-center gap-2">
-                      <Icon className="h-5 w-5 text-zinc-300" />
-                      {skillGroup.category}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex flex-wrap gap-2">
-                      {skillGroup.items.map((skill, skillIndex) => (
-                        <Badge 
-                          key={skillIndex} 
-                          variant="secondary" 
-                          className="text-xs bg-zinc-800 text-zinc-300 hover:bg-zinc-700"
-                        >
-                          {skill}
-                        </Badge>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              )
-            })}
-          </div>
-        </div>
       </div>
     </section>
   )

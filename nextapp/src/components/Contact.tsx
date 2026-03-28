@@ -1,252 +1,202 @@
 'use client'
 
-import { useState } from "react"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Mail, Phone, MapPin, Send, Github, Linkedin } from "lucide-react"
+import { useRef, useState } from "react"
+import { motion, useInView } from "framer-motion"
+import { ShootingStars } from "@/components/ui/shooting-stars"
+import { StarsBackground } from "@/components/ui/stars-background"
+
+const links = [
+  { label: "GitHub", href: "https://github.com/AhqafCoder", icon: "⌨️" },
+  { label: "LinkedIn", href: "https://linkedin.com/in/ahqafali", icon: "💼" },
+  { label: "Email", href: "mailto:ahqafaliofficial@gmail.com", icon: "✉️" },
+  { label: "Portfolio", href: "https://www.ahqafali.site", icon: "🌐" }
+]
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  })
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }))
-  }
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true, margin: "-100px" })
+  const [sent, setSent] = useState(false)
+  const [form, setForm] = useState({ name: "", email: "", message: "" })
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Create mailto link with form data
-    const subject = encodeURIComponent(formData.subject || 'Contact from Portfolio')
-    const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)
-    window.location.href = `mailto:ahqafaliofficial@gmail.com?subject=${subject}&body=${body}`
+    setSent(true)
   }
 
-  const contactInfo = [
-    {
-      icon: Mail,
-      label: "Email",
-      value: "ahqafaliofficial@gmail.com",
-      href: "mailto:ahqafaliofficial@gmail.com"
-    },
-    {
-      icon: Phone,
-      label: "Phone",
-      value: "+91 7084089921",
-      href: "tel:+917084089921"
-    },
-    {
-      icon: MapPin,
-      label: "Location",
-      value: "Available for Remote Work",
-      href: null
-    }
-  ]
-
-  const socialLinks = [
-    {
-      icon: Github,
-      label: "GitHub",
-      href: "https://github.com/AhqafCoder"
-    },
-    {
-      icon: Linkedin,
-      label: "LinkedIn",
-      href: "https://linkedin.com/in/ahqafali"
-    },
-    {
-      icon: Mail,
-      label: "Email",
-      href: "mailto:ahqafaliofficial@gmail.com"
-    }
-  ]
-
   return (
-    <section id="contact" className="py-20 px-6 bg-zinc-950/30">
-      <div className="max-w-6xl mx-auto space-y-12">
+    <section
+      id="contact"
+      ref={ref}
+      className="relative py-24 md:py-32 overflow-hidden bg-black"
+    >
+      {/* Background */}
+      <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
+        <StarsBackground starDensity={0.0001} />
+        <ShootingStars starColor="#ffffff" trailColor="#666666" minSpeed={6} maxSpeed={18} />
+      </div>
+
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/20 z-[1]" />
+
+
+      <div className="relative z-10 max-w-5xl mx-auto px-6">
+
         {/* Header */}
-        <div className="text-center space-y-4">
-          <h2 className="text-4xl font-bold tracking-tight">Get In Touch</h2>
-          <p className="text-xl text-zinc-400 max-w-3xl mx-auto">
-            Ready to bring your ideas to life? Let&apos;s discuss your next project and 
-            how we can work together to create something amazing.
-          </p>
+        <div className="mb-16 md:mb-20">
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : {}}
+            className="text-white/50 text-xs tracking-[0.3em] uppercase mb-4 font-semibold"
+            style={{ textShadow: '0 2px 10px rgba(0,0,0,0.8)' }}
+          >
+            Contact
+          </motion.p>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.1 }}
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1]"
+            style={{ textShadow: '0 4px 20px rgba(0,0,0,0.9)' }}
+          >
+            Let&apos;s build
+            <br />
+            <span className="italic font-medium text-white/90">something together.</span>
+          </motion.h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
-          <Card className="bg-zinc-900/50 border-zinc-800">
-            <CardHeader>
-              <CardTitle>Send me a message</CardTitle>
-              <CardDescription>
-                I&apos;ll get back to you as soon as possible.
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-zinc-300 mb-1">
-                      Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-3 py-2 bg-zinc-800 border border-zinc-700 rounded-md text-zinc-100 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:border-transparent"
-                      placeholder="Your name"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-zinc-300 mb-1">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-3 py-2 bg-zinc-800 border border-zinc-700 rounded-md text-zinc-100 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:border-transparent"
-                      placeholder="your.email@example.com"
-                    />
-                  </div>
-                </div>
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-20">
 
+          {/* Left - Form */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.2 }}
+            className="p-6 border border-white/10 rounded-xl bg-black/50 backdrop-blur-sm"
+          >
+            {sent ? (
+              <motion.div
+                initial={{ scale: 0.95, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                className="py-16 text-center"
+              >
+                <p className="text-white text-xl font-bold mb-2">Message sent.</p>
+                <p className="text-white/60 text-sm font-medium">I&apos;ll get back to you soon.</p>
+              </motion.div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-zinc-300 mb-1">
-                    Subject
+                  <label className="block text-white/60 text-xs tracking-[0.2em] uppercase mb-3 font-semibold">
+                    Name
                   </label>
                   <input
                     type="text"
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleInputChange}
-                    className="w-full px-3 py-2 bg-zinc-800 border border-zinc-700 rounded-md text-zinc-100 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:border-transparent"
-                    placeholder="Project inquiry, collaboration, etc."
+                    value={form.name}
+                    onChange={(e) => setForm({ ...form, name: e.target.value })}
+                    required
+                    className="w-full bg-black/50 border border-white/15 rounded-lg px-4 py-3 text-white text-sm font-medium focus:outline-none focus:border-white/40 transition-colors placeholder:text-white/30"
+                    placeholder="Your name"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-zinc-300 mb-1">
+                  <label className="block text-white/60 text-xs tracking-[0.2em] uppercase mb-3 font-semibold">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    value={form.email}
+                    onChange={(e) => setForm({ ...form, email: e.target.value })}
+                    required
+                    className="w-full bg-black/50 border border-white/15 rounded-lg px-4 py-3 text-white text-sm font-medium focus:outline-none focus:border-white/40 transition-colors placeholder:text-white/30"
+                    placeholder="your@email.com"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-white/60 text-xs tracking-[0.2em] uppercase mb-3 font-semibold">
                     Message
                   </label>
                   <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
+                    rows={4}
+                    value={form.message}
+                    onChange={(e) => setForm({ ...form, message: e.target.value })}
                     required
-                    rows={5}
-                    className="w-full px-3 py-2 bg-zinc-800 border border-zinc-700 rounded-md text-zinc-100 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:border-transparent resize-none"
+                    className="w-full bg-black/50 border border-white/15 rounded-lg px-4 py-3 text-white text-sm font-medium focus:outline-none focus:border-white/40 transition-colors resize-none placeholder:text-white/30"
                     placeholder="Tell me about your project..."
                   />
                 </div>
 
-                <Button type="submit" className="w-full bg-white text-black hover:bg-zinc-200">
-                  <Send className="h-4 w-4 mr-2" />
+                <motion.button
+                  type="submit"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full py-4 text-sm text-black bg-white rounded-lg hover:bg-white/90 transition-colors font-bold tracking-wide"
+                >
                   Send Message
-                </Button>
+                </motion.button>
               </form>
-            </CardContent>
-          </Card>
+            )}
+          </motion.div>
 
-          {/* Contact Information */}
-          <div className="space-y-8">
-            {/* Contact Info */}
-            <Card className="bg-zinc-900/50 border-zinc-800">
-              <CardHeader>
-                <CardTitle>Contact Information</CardTitle>
-                <CardDescription>
-                  Feel free to reach out through any of these channels.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                {contactInfo.map((info, index) => {
-                  const Icon = info.icon
-                  const content = (
-                    <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-zinc-800/50 transition-colors">
-                      <div className="w-10 h-10 bg-zinc-800 rounded-lg flex items-center justify-center">
-                        <Icon className="h-5 w-5 text-zinc-300" />
-                      </div>
-                      <div>
-                        <p className="font-medium text-zinc-200">{info.label}</p>
-                        <p className="text-sm text-zinc-400">{info.value}</p>
-                      </div>
-                    </div>
-                  )
-
-                  return info.href ? (
-                    <a key={index} href={info.href} className="block">
-                      {content}
-                    </a>
-                  ) : (
-                    <div key={index}>{content}</div>
-                  )
-                })}
-              </CardContent>
-            </Card>
-
-            {/* Social Links */}
-            <Card className="bg-zinc-900/50 border-zinc-800">
-              <CardHeader>
-                <CardTitle>Connect with me</CardTitle>
-                <CardDescription>
-                  <CardDescription>
-                Let&apos;s connect on social platforms.
-              </CardDescription>
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex gap-4">
-                  {socialLinks.map((social, index) => {
-                    const Icon = social.icon
-                    return (
-                      <Button key={index} variant="outline" size="icon" asChild>
-                        <a href={social.href} target="_blank" rel="noopener noreferrer">
-                          <Icon className="h-5 w-5" />
-                        </a>
-                      </Button>
-                    )
-                  })}
-                </div>
-              </CardContent>
-            </Card>
-
+          {/* Right - Info */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.3 }}
+            className="space-y-10"
+          >
             {/* Availability */}
-            <Card className="bg-zinc-900/50 border-zinc-800">
-              <CardHeader>
-                <CardTitle>Availability</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  <div className="flex items-center gap-2">
-                    <Badge className="bg-green-600 hover:bg-green-600">Available</Badge>
-                    <span className="text-sm text-zinc-400">for new projects</span>
-                  </div>
-                  <p className="text-sm text-zinc-400">
-                    I&apos;m currently accepting new freelance projects and full-time opportunities.
-                    Response time: Usually within 24 hours.
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
+            <div className="p-5 border border-white/10 rounded-xl bg-black/50">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+                <span className="text-white text-sm font-bold">Available for work</span>
+              </div>
+              <p className="text-white/80 text-sm leading-relaxed font-medium">
+                Open to freelance projects, full-time roles, and collaborations.
+                Currently working on autonomous systems and startup products.
+              </p>
+            </div>
+
+            {/* Links */}
+            <div>
+              <p className="text-white/50 text-xs tracking-[0.2em] uppercase mb-6 font-semibold">Connect</p>
+              <div className="space-y-3">
+                {links.map((link, i) => (
+                  <motion.a
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0, x: 10 }}
+                    animate={inView ? { opacity: 1, x: 0 } : {}}
+                    transition={{ delay: 0.4 + i * 0.08 }}
+                    className="group flex items-center gap-4 py-3 px-4 border border-white/10 rounded-lg bg-black/50 hover:border-white/25 hover:bg-black/70 transition-all"
+                  >
+                    <span className="text-xl">{link.icon}</span>
+                    <span className="text-white text-sm font-semibold group-hover:text-white transition-colors flex-1">
+                      {link.label}
+                    </span>
+                    <span className="text-white/40 group-hover:text-white transition-colors font-bold">→</span>
+                  </motion.a>
+                ))}
+              </div>
+            </div>
+
+            {/* Direct */}
+            <div className="pt-6 border-t border-white/10">
+              <p className="text-white/50 text-xs tracking-[0.2em] uppercase mb-4 font-semibold">Direct</p>
+              <a
+                href="mailto:ahqafaliofficial@gmail.com"
+                className="text-white text-sm font-bold hover:text-white/80 transition-colors"
+              >
+                ahqafaliofficial@gmail.com
+              </a>
+            </div>
+
+          </motion.div>
         </div>
+
       </div>
     </section>
   )

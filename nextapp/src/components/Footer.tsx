@@ -1,130 +1,155 @@
 'use client'
 
-import { Button } from "@/components/ui/button"
-import { Separator } from "@/components/ui/separator"
-import { Github, Linkedin, Mail, Heart, ArrowUp } from "lucide-react"
+import { motion } from "framer-motion"
+import { ShootingStars } from "@/components/ui/shooting-stars"
+import { StarsBackground } from "@/components/ui/stars-background"
 
 export default function Footer() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
-  const currentYear = new Date().getFullYear()
-
-  const socialLinks = [
-    {
-      icon: Github,
-      href: "https://github.com/AhqafCoder",
-      label: "GitHub"
-    },
-    {
-      icon: Linkedin,
-      href: "https://linkedin.com/in/ahqafali",
-      label: "LinkedIn"
-    },
-    {
-      icon: Mail,
-      href: "mailto:ahqaf.dev@gmail.com",
-      label: "Email"
-    }
-  ]
-
-  const quickLinks = [
-    { name: "About", href: "#about" },
-    { name: "Projects", href: "#projects" },
-    { name: "Contact", href: "#contact" },
-  ]
-
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId.substring(1))
+    const element = document.getElementById(sectionId.toLowerCase())
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' })
     }
   }
 
-  return (
-    <footer className="bg-zinc-950 border-t border-zinc-800">
-      <div className="max-w-6xl mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* About */}
-          <div className="md:col-span-2 space-y-4">
-            <h3 className="text-xl font-bold">Ahqaf Ali</h3>
-            <p className="text-zinc-400 max-w-md">
-              Results-driven Full-Stack Developer with 800+ GitHub contributions, hackathon winner,
-              and expertise in delivering high-impact web solutions. Always eager to take on new challenges.
-            </p>
-            <div className="flex gap-4">
-              {socialLinks.map((social, index) => {
-                const Icon = social.icon
-                return (
-                  <Button key={index} variant="ghost" size="icon" asChild>
-                    <a 
-                      href={social.href} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      aria-label={social.label}
-                    >
-                      <Icon className="h-5 w-5" />
-                    </a>
-                  </Button>
-                )
-              })}
-            </div>
-          </div>
+  const navLinks = ["Home", "About", "Experience", "Achievements", "Projects", "Contact"]
 
-          {/* Quick Links */}
-          <div className="space-y-4">
-            <h4 className="font-semibold text-zinc-200">Quick Links</h4>
-            <div className="space-y-2">
-              {quickLinks.map((link, index) => (
-                <button
-                  key={index}
-                  onClick={() => scrollToSection(link.href)}
-                  className="block text-zinc-400 hover:text-zinc-200 transition-colors"
+  const socialLinks = [
+    { name: "GitHub", url: "https://github.com/AhqafCoder", icon: "⌨️" },
+    { name: "LinkedIn", url: "https://linkedin.com/in/ahqafali", icon: "💼" },
+    { name: "Email", url: "mailto:ahqafaliofficial@gmail.com", icon: "✉️" },
+    { name: "Portfolio", url: "https://www.ahqafali.site", icon: "🌐" }
+  ]
+
+  return (
+    <footer className="relative py-16 md:py-20 overflow-hidden bg-black border-t border-white/10">
+      {/* Background */}
+      <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
+        <StarsBackground starDensity={0.00008} />
+        <ShootingStars starColor="#ffffff" trailColor="#666666" minSpeed={5} maxSpeed={15} />
+      </div>
+
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/20 z-[1]" />
+
+
+      <div className="relative z-10 max-w-6xl mx-auto px-6">
+
+        {/* Top Section */}
+        <div className="grid md:grid-cols-12 gap-12 mb-16">
+
+          {/* Left - Brand */}
+          <div className="md:col-span-5">
+            <p className="text-white text-xl font-bold mb-4" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.8)' }}>Ahqaf Ali</p>
+            <p className="text-white/70 text-sm leading-relaxed max-w-sm mb-6 font-medium">
+              Full-stack developer building intelligent systems, autonomous machines,
+              and scalable tech products. Open to collaborations and opportunities.
+            </p>
+
+            {/* Social Icons */}
+            <div className="flex gap-3">
+              {socialLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-lg border border-white/15 bg-black/50 flex items-center justify-center text-base hover:bg-black/70 hover:border-white/30 transition-all"
+                  title={link.name}
                 >
-                  {link.name}
-                </button>
+                  {link.icon}
+                </a>
               ))}
             </div>
           </div>
 
-          {/* Contact Info */}
-          <div className="space-y-4">
-            <h4 className="font-semibold text-zinc-200">Get in Touch</h4>
-            <div className="space-y-2 text-zinc-400">
-              <p>ahqafaliofficial@gmail.com</p>
-              <p>+91 7084089921</p>
-              <p>Available for remote work</p>
-              <p>
-                <span className="inline-flex items-center gap-1">
-                  <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-                  Open to freelance projects
-                </span>
-              </p>
+          {/* Right - Links */}
+          <div className="md:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8">
+            <div>
+              <p className="text-white/60 text-xs tracking-[0.2em] uppercase mb-4 font-bold">Navigate</p>
+              <div className="space-y-2.5">
+                {navLinks.slice(0, 3).map((item) => (
+                  <button
+                    key={item}
+                    onClick={() => scrollToSection(item)}
+                    className="block text-white/80 text-sm font-medium hover:text-white transition-colors"
+                  >
+                    {item}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <p className="text-white/60 text-xs tracking-[0.2em] uppercase mb-4 font-bold">&nbsp;</p>
+              <div className="space-y-2.5">
+                {navLinks.slice(3).map((item) => (
+                  <button
+                    key={item}
+                    onClick={() => scrollToSection(item)}
+                    className="block text-white/80 text-sm font-medium hover:text-white transition-colors"
+                  >
+                    {item}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <p className="text-white/60 text-xs tracking-[0.2em] uppercase mb-4 font-bold">Connect</p>
+              <div className="space-y-2.5">
+                {socialLinks.slice(0, 3).map((link) => (
+                  <a
+                    key={link.name}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block text-white/80 text-sm font-medium hover:text-white transition-colors"
+                  >
+                    {link.name}
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </div>
 
-        <Separator className="my-8 bg-zinc-800" />
-
-        {/* Bottom Section */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2 text-sm text-zinc-400">
-            <span>© {currentYear} Ahqaf Ali. Built with</span>
-            <Heart className="h-4 w-4 text-red-500" />
-            <span>using Next.js & Tailwind CSS</span>
-          </div>
-
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={scrollToTop}
-            className="text-zinc-400 hover:text-zinc-200"
+        {/* Large Text */}
+        <div className="overflow-hidden mb-12">
+          <motion.p
+            initial={{ y: 80 }}
+            whileInView={{ y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white/[0.06] select-none"
           >
-            Back to top
-            <ArrowUp className="h-4 w-4 ml-2" />
-          </Button>
+            BUILD · SHIP · REPEAT
+          </motion.p>
         </div>
+
+        {/* Bottom */}
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-8 border-t border-white/10">
+          <p className="text-white/50 text-xs font-medium">
+            © {new Date().getFullYear()} Ahqaf Ali. All rights reserved.
+          </p>
+
+          <div className="flex items-center gap-6">
+            <span className="text-white/50 text-xs font-medium">
+              Built with Next.js & Framer Motion
+            </span>
+            <button
+              onClick={scrollToTop}
+              className="text-white/60 hover:text-white text-xs font-bold transition-colors flex items-center gap-1"
+            >
+              Back to top <span>↑</span>
+            </button>
+          </div>
+        </div>
+
       </div>
     </footer>
   )

@@ -7,6 +7,7 @@ import { motion } from "framer-motion"
 const navItems = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
+  { name: "Experience", href: "#experience" },
   { name: "Projects", href: "#projects" },
   { name: "Contact", href: "#contact" },
 ]
@@ -99,23 +100,7 @@ export default function Navigation() {
             </motion.button>
           ))}
           
-          <motion.div variants={itemVariants}>
-            <Button 
-            variant="ghost" 
-            size="sm"
-            onClick={() => {
-              const link = document.createElement('a')
-              link.href = '/Resume.pdf'
-              link.download = 'Ahqaf_Ali_Resume.pdf'
-              document.body.appendChild(link)
-              link.click()
-              document.body.removeChild(link)
-            }}
-            className="ml-1 text-white hover:text-zinc-300 hover:bg-white/10 text-xs md:text-sm"
-          >
-            Resume
-          </Button>
-          </motion.div>
+          
         </motion.div>
       </div>
     </nav>

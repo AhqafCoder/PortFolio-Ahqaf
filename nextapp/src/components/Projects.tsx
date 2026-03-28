@@ -1,266 +1,307 @@
 'use client'
 
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { ExternalLink, Github, Calendar } from "lucide-react"
-import Image from "next/image"
+import { useState, useRef } from "react"
+import { motion, useInView, AnimatePresence } from "framer-motion"
+import { ShootingStars } from "@/components/ui/shooting-stars"
+import { StarsBackground } from "@/components/ui/stars-background"
 
 const projects = [
   {
-    name: "OpenGeek Community App",
-    description: "Developer community platform for collaboration, discussions, and resource sharing. Built with industry-grade UI & security, responsive across all devices with role-based authentication.",
-    technologies: ["Next.js", "Express.js", "PostgreSQL", "Clerk Auth", "Tailwind CSS"],
+    id: 1,
+    name: "OpenGeek Community Platform",
+    description: "Developer community platform with modern UI, authentication, and scalable backend.",
+    tech: ["Next.js", "Express", "Clerk", "PostgreSQL"],
     liveUrl: "https://community.opengeek.in/",
     githubUrl: "https://github.com/AhqafCoder/OPENGEEK",
-    image: "/projects/opengeek-community.png",
-    date: "June 2025",
+    year: "2025",
     featured: true
   },
   {
-    name: "InvertisPrep App",
-    description: "Educational webapp for university students to access previous year questions and notes with gamified learning experience. Winner project of INVERTHON 2025 hackathon.",
-    technologies: ["Next.js", "Node.js", "PostgreSQL", "Gamification"],
+    id: 2,
+    name: "InvertisPrep",
+    description: "Gamified EdTech platform providing PYQs, notes, and learning tools. Hackathon winner.",
+    tech: ["Next.js", "Node.js"],
     liveUrl: "https://www.invertisprep.in/",
     githubUrl: "https://github.com/AhqafCoder/InvertisPrep",
-    image: "/projects/invertisprep.png",
-    date: "July 2025",
+    year: "2025",
     featured: true
   },
   {
-    name: "Healing Website (UK Client)",
-    description: "Professional wellness website developed for an international client from London, UK. My first paid international project with complete UI/UX design and deployment.",
-    technologies: ["React", "CSS", "JavaScript", "Professional UI/UX"],
-    liveUrl: "https://showershealing.com/",
-    githubUrl: "https://github.com/AhqafCoder/DivineEnergyFlow",
-    image: "/projects/healing-website.png",
-    date: "March 2025",
-    featured: true
-  },
-  {
-    name: "Hostel Management Software",
-    description: "Comprehensive platform for hostel management with role-based access for Admin, Warden, and Students. Full-stack application with modern architecture.",
-    technologies: ["Next.js", "Express.js", "PostgreSQL", "Role-based Auth"],
+    id: 3,
+    name: "Hostel Management System",
+    description: "Full-stack system with role-based access for managing hostel operations.",
+    tech: ["Next.js", "Express", "PostgreSQL"],
     liveUrl: "#",
     githubUrl: "https://github.com/AhqafCoder/HMS",
-    image: "/projects/hms.png",
-    date: "In Progress",
+    year: "2025",
+    featured: true
+  },
+  {
+    id: 4,
+    name: "WhatsApp CRM Automation",
+    description: "Automated CRM workflows using WhatsApp API and HubSpot via n8n.",
+    tech: ["n8n", "APIs", "HubSpot"],
+    liveUrl: "#",
+    githubUrl: "#",
+    year: "2025",
     featured: false
   },
   {
+    id: 5,
     name: "EZ Code Platform",
-    description: "Interactive coding platform for learning programming, algorithms, and DSA through real-time coding challenges. Complete EdTech solution with modern UI.",
-    technologies: ["React", "Node.js", "Real-time Challenges", "EdTech"],
+    description: "Interactive platform for learning coding and DSA.",
+    tech: ["React", "Node.js"],
     liveUrl: "https://ezcode-xi.vercel.app/",
     githubUrl: "https://github.com/AhqafCoder/ezcode",
-    image: "/projects/ezcode.png",
-    date: "February 2025",
+    year: "2025",
     featured: false
   },
   {
-    name: "OpenGeek Main Site",
-    description: "Official website of OpenGeek community featuring events, resources, and community details. Clean, professional design with modern web standards.",
-    technologies: ["Next.js", "Tailwind CSS", "Community Features"],
-    liveUrl: "https://www.opengeek.in/",
-    githubUrl: "https://github.com/AhqafCoder/OPENGEEK",
-    image: "/projects/opengeek-main.png",
-    date: "May 2025",
-    featured: false
+    id: 6,
+    name: "Healing Website",
+    description: "Production-grade client project with complete UI/UX and deployment. UK Client.",
+    tech: ["Next.js"],
+    liveUrl: "https://showershealing.com/",
+    githubUrl: "https://github.com/AhqafCoder/DivineEnergyFlow",
+    year: "2025",
+    featured: true
   },
   {
-    name: "IndiPixel Gaming Site",
-    description: "Interactive website for Minecraft server community showcasing game modes, updates, and community integration. Managed 400+ member gaming community.",
-    technologies: ["HTML", "CSS", "JavaScript", "Community Management"],
-    liveUrl: "https://www.indipixel.online/",
-    githubUrl: "https://github.com/AhqafCoder/INDIPIXEL",
-    image: "/projects/indipixel.png",
-    date: "June 2024",
-    featured: false
-  },
-  {
-    name: "CWeb Server Framework",
-    description: "Lightweight custom web framework for efficient HTTP request and response handling. Built from scratch to understand server-side fundamentals.",
-    technologies: ["Node.js", "Custom Framework", "HTTP Handling"],
-    liveUrl: "https://cweb-7pbz.onrender.com/",
-    githubUrl: "https://github.com/AhqafCoder/CWEB",
-    image: "/projects/cweb.png",
-    date: "February 2025",
-    featured: false
-  },
-  {
-    name: "DocSmart",
-    description: "Smart document management system designed for efficient organization and retrieval of documents. Features advanced search, tagging, and categorization.",
-    technologies: ["React", "Node.js", "MongoDB", "File Management"],
+    id: 7,
+    name: "CWeb Server",
+    description: "Custom lightweight web framework for handling HTTP requests.",
+    tech: ["Node.js"],
     liveUrl: "#",
-    githubUrl: "https://github.com/AhqafCoder/DocSmart",
-    image: "/projects/docsmart.png",
-    date: "January 2025",
+    githubUrl: "#",
+    year: "2024",
     featured: false
   },
   {
-    name: "IndiPixel Website",
-    description: "Interactive gaming community website for Minecraft server showcasing game modes, updates, and community integration. Features modern design and user engagement tools.",
-    technologies: ["HTML", "CSS", "JavaScript", "Community Platform"],
-    liveUrl: "https://www.indipixel.online",
-    githubUrl: "https://github.com/AhqafCoder/INDIPIXEL",
-    image: "/projects/indipixel.png",
-    date: "June 2024",
+    id: 8,
+    name: "DocSmart",
+    description: "Scalable document management system.",
+    tech: ["Full-stack"],
+    liveUrl: "#",
+    githubUrl: "#",
+    year: "2024",
     featured: false
   }
 ]
 
-export default function Projects() {
+function Modal({ project, onClose }: { project: typeof projects[0]; onClose: () => void }) {
   return (
-    <section id="projects" className="py-20 px-6">
-      <div className="max-w-7xl mx-auto space-y-12">
-        {/* Header */}
-        <div className="text-center space-y-4">
-          <h2 className="text-4xl font-bold tracking-tight">Featured Projects</h2>
-          <p className="text-xl text-zinc-400 max-w-3xl mx-auto">
-            A showcase of my recent work, including client projects, web applications, 
-            and open-source contributions.
-          </p>
-        </div>
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="fixed inset-0 z-50 flex items-center justify-center p-6"
+        style={{ background: "rgba(0,0,0,0.95)", backdropFilter: "blur(20px)" }}
+        onClick={onClose}
+      >
+        <motion.div
+          initial={{ scale: 0.9, opacity: 0, y: 30 }}
+          animate={{ scale: 1, opacity: 1, y: 0 }}
+          exit={{ scale: 0.9, opacity: 0, y: 30 }}
+          transition={{ type: "spring", stiffness: 300, damping: 30 }}
+          className="relative w-full max-w-lg"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <button
+            onClick={onClose}
+            className="absolute -top-12 right-0 text-white/60 hover:text-white text-sm font-semibold transition-colors"
+          >
+            Close ×
+          </button>
 
-        {/* Featured Projects */}
-        <div className="space-y-8">
-          <h3 className="text-2xl font-semibold">Featured Work</h3>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {projects.filter(project => project.featured).map((project, index) => (
-              <Card key={index} className="bg-zinc-900/50 border-zinc-800 overflow-hidden hover:bg-zinc-900/70 transition-colors">
-                <div className="aspect-video relative bg-zinc-800">
-                  <Image
-                    src={project.image}
-                    alt={project.name}
-                    fill
-                    className="object-cover"
-                    onError={(e) => {
-                      // Fallback if image doesn't exist
-                      e.currentTarget.style.display = 'none'
-                    }}
-                  />
-                  {project.featured && (
-                    <Badge className="absolute top-4 left-4 bg-white text-black">
-                      Featured
-                    </Badge>
-                  )}
-                </div>
-                
-                <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <CardTitle className="text-xl">{project.name}</CardTitle>
-                    <div className="flex items-center gap-1 text-sm text-zinc-400">
-                      <Calendar className="h-4 w-4" />
-                      {project.date}
-                    </div>
-                  </div>
-                  <CardDescription className="text-zinc-300">
-                    {project.description}
-                  </CardDescription>
-                </CardHeader>
-                
-                <CardContent>
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech, techIndex) => (
-                      <Badge key={techIndex} variant="outline" className="border-zinc-600 text-zinc-300">
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-                
-                <CardFooter className="flex gap-3">
-                  {project.liveUrl !== "#" && (
-                    <Button asChild size="sm">
-                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="h-4 w-4 mr-2" />
-                        Live Demo
-                      </a>
-                    </Button>
-                  )}
-                  
-                  <Button variant="outline" asChild size="sm">
-                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                      <Github className="h-4 w-4 mr-2" />
-                      Code
-                    </a>
-                  </Button>
-                </CardFooter>
-              </Card>
-            ))}
-          </div>
-        </div>
+          <div className="border border-white/15 rounded-xl bg-black/90 p-8">
+            <div className="flex items-start justify-between gap-4 mb-6">
+              <div>
+                <p className="text-white/50 text-xs tracking-[0.2em] uppercase mb-2 font-semibold">{project.year}</p>
+                <h3 className="text-white text-2xl font-bold">{project.name}</h3>
+              </div>
+            </div>
 
-        {/* Other Projects */}
-        <div className="space-y-8">
-          <h3 className="text-2xl font-semibold">Other Projects</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.filter(project => !project.featured).map((project, index) => (
-              <Card key={index} className="bg-zinc-900/50 border-zinc-800 hover:bg-zinc-900/70 transition-colors">
-                <div className="aspect-video relative bg-zinc-800">
-                  <Image
-                    src={project.image}
-                    alt={project.name}
-                    fill
-                    className="object-cover"
-                    onError={(e) => {
-                      e.currentTarget.style.display = 'none'
-                    }}
-                  />
-                </div>
-                
-                <CardHeader className="pb-3">
-                  <div className="flex items-center justify-between">
-                    <CardTitle className="text-lg">{project.name}</CardTitle>
-                    <div className="flex items-center gap-1 text-xs text-zinc-400">
-                      <Calendar className="h-3 w-3" />
-                      {project.date}
-                    </div>
-                  </div>
-                  <CardDescription className="text-sm">
-                    {project.description.length > 120 
-                      ? project.description.substring(0, 120) + "..." 
-                      : project.description}
-                  </CardDescription>
-                </CardHeader>
-                
-                <CardContent className="pt-0">
-                  <div className="flex flex-wrap gap-1">
-                    {project.technologies.slice(0, 3).map((tech, techIndex) => (
-                      <Badge key={techIndex} variant="outline" className="text-xs border-zinc-600 text-zinc-300">
-                        {tech}
-                      </Badge>
-                    ))}
-                    {project.technologies.length > 3 && (
-                      <Badge variant="outline" className="text-xs border-zinc-600 text-zinc-300">
-                        +{project.technologies.length - 3} more
-                      </Badge>
-                    )}
-                  </div>
-                </CardContent>
-                
-                <CardFooter className="flex gap-2 pt-0">
-                  {project.liveUrl !== "#" && (
-                    <Button asChild size="sm" variant="outline" className="flex-1">
-                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="h-3 w-3 mr-1" />
-                        Live
-                      </a>
-                    </Button>
-                  )}
-                  
-                  <Button variant="outline" asChild size="sm" className="flex-1">
-                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                      <Github className="h-3 w-3 mr-1" />
-                      Code
-                    </a>
-                  </Button>
-                </CardFooter>
-              </Card>
-            ))}
+            <p className="text-white/80 text-sm leading-relaxed mb-8 font-medium">{project.description}</p>
+
+            <div className="flex flex-wrap gap-2 mb-8">
+              {project.tech.map((t) => (
+                <span key={t} className="text-white/80 text-xs px-3 py-1.5 border border-white/15 rounded-full bg-black/50 font-medium">
+                  {t}
+                </span>
+              ))}
+            </div>
+
+            <div className="flex gap-4">
+              {project.liveUrl !== "#" && (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 py-3 text-center text-sm text-black bg-white rounded-lg hover:bg-white/90 transition-colors font-bold"
+                >
+                  View Live
+                </a>
+              )}
+              {project.githubUrl !== "#" && (
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 py-3 text-center text-sm text-white border border-white/30 rounded-lg hover:border-white/50 transition-colors font-semibold"
+                >
+                  Source Code
+                </a>
+              )}
+            </div>
           </div>
-        </div>
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
+  )
+}
+
+export default function Projects() {
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true, margin: "-100px" })
+  const [selected, setSelected] = useState<typeof projects[0] | null>(null)
+  const [showAll, setShowAll] = useState(false)
+
+  const featured = projects.filter(p => p.featured)
+  const others = projects.filter(p => !p.featured)
+  const displayProjects = showAll ? projects : featured
+
+  return (
+    <section
+      id="projects"
+      ref={ref}
+      className="relative py-24 md:py-32 overflow-hidden bg-black"
+    >
+      {/* Background */}
+      <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
+        <StarsBackground starDensity={0.00012} />
+        <ShootingStars starColor="#ffffff" trailColor="#666666" minSpeed={10} maxSpeed={22} />
       </div>
+
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/20 z-[1]" />
+
+
+      <div className="relative z-10 max-w-6xl mx-auto px-6">
+
+        {/* Header */}
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+          <div>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={inView ? { opacity: 1 } : {}}
+              className="text-white/50 text-xs tracking-[0.3em] uppercase mb-4 font-semibold"
+              style={{ textShadow: '0 2px 10px rgba(0,0,0,0.8)' }}
+            >
+              Selected Work
+            </motion.p>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.1 }}
+              className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-[1.1]"
+              style={{ textShadow: '0 4px 20px rgba(0,0,0,0.9)' }}
+            >
+              Projects that
+              <br />
+              <span className="italic font-medium text-white/90">shipped.</span>
+            </motion.h2>
+          </div>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : {}}
+            transition={{ delay: 0.2 }}
+            className="text-white/70 text-sm max-w-xs font-medium"
+            style={{ textShadow: '0 2px 10px rgba(0,0,0,0.7)' }}
+          >
+            From web apps to automation systems — real products solving real problems.
+          </motion.p>
+        </div>
+
+        {/* Projects List */}
+        <div className="space-y-3 mb-12">
+          {displayProjects.map((project, i) => (
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.15 + i * 0.08 }}
+              onClick={() => setSelected(project)}
+              className="group cursor-pointer"
+            >
+              <div className="flex items-center justify-between py-5 px-4 border border-white/10 rounded-lg bg-black/50 hover:border-white/25 hover:bg-black/70 transition-all">
+                <div className="flex items-center gap-5">
+                  <span className="text-white/40 text-xs font-mono font-bold w-8">{String(i + 1).padStart(2, '0')}</span>
+                  <div>
+                    <h3 className="text-white text-lg md:text-xl font-bold group-hover:text-white transition-colors" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.8)' }}>
+                      {project.name}
+                    </h3>
+                    <p className="text-white/70 text-xs md:text-sm mt-1 max-w-md font-medium">
+                      {project.description}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-5">
+                  <div className="hidden md:flex gap-2">
+                    {project.tech.slice(0, 2).map((t) => (
+                      <span key={t} className="text-white/60 text-xs font-medium">{t}</span>
+                    ))}
+                  </div>
+                  <span className="text-white/50 text-xs font-semibold">{project.year}</span>
+                  <span className="text-white/40 group-hover:text-white transition-colors font-bold">→</span>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Show More */}
+        {!showAll && others.length > 0 && (
+          <motion.button
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : {}}
+            transition={{ delay: 0.6 }}
+            onClick={() => setShowAll(true)}
+            className="text-white/70 text-sm hover:text-white transition-colors font-bold"
+          >
+            + {others.length} more projects
+          </motion.button>
+        )}
+
+        {/* Stats Row */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.7 }}
+          className="mt-20 pt-12 border-t border-white/10"
+        >
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {[
+              { label: "Projects Shipped", value: "15+" },
+              { label: "GitHub Contributions", value: "800+" },
+              { label: "Hackathons Won", value: "3" },
+              { label: "Client Projects", value: "2" }
+            ].map((stat) => (
+              <div key={stat.label}>
+                <p className="text-white text-2xl md:text-3xl font-bold mb-1" style={{ textShadow: '0 2px 15px rgba(0,0,0,0.8)' }}>{stat.value}</p>
+                <p className="text-white/60 text-xs font-medium">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+      </div>
+
+      {/* Modal */}
+      {selected && <Modal project={selected} onClose={() => setSelected(null)} />}
     </section>
   )
 }
