@@ -1,6 +1,40 @@
+# Robots.txt for ahqafali.dev
 # https://www.robotstxt.org/robotstxt.html
+
+# Allow all crawlers
 User-agent: *
 Allow: /
+Allow: /sitemap.xml
+Allow: /og-image.png
+Allow: /profile-image.jpg
 
-# Sitemap
+# Disallow admin and private paths (if any)
+Disallow: /api/
+Disallow: /_next/
+Disallow: /private/
+
+# Crawl delay for politeness
+Crawl-delay: 1
+
+# Google specific
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Google Images
+User-agent: Googlebot-Image
+Allow: /
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.svg$
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Sitemap location
 Sitemap: https://www.ahqafali.dev/sitemap.xml
+
+# Host directive
+Host: https://www.ahqafali.dev
