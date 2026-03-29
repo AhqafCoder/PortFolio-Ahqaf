@@ -9,7 +9,7 @@ const experiences = [
   {
     role: "Tech Associate",
     company: "Invertis Incubation Center",
-    period: "2025 — Present",
+    period: "October 2025 — Present",
     type: "current",
     description: [
       "Working on real-world product development and innovation-driven projects",
@@ -18,9 +18,9 @@ const experiences = [
     ]
   },
   {
-    role: "Part-Time Developer",
+    role: "Full Stack Developer",
     company: "EduSphere Technologies",
-    period: "2024 — Present",
+    period: "February 2026 — Present",
     type: "current",
     description: [
       "Contributing to early-stage startup product development",
@@ -31,7 +31,7 @@ const experiences = [
   {
     role: "Developer",
     company: "OpenGeek Tech Community",
-    period: "2024 — 2025",
+    period: "June 2025 — September 2025",
     type: "past",
     description: [
       "Built a full-stack community platform with secure authentication",
