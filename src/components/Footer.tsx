@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from "framer-motion"
+import { Github, Linkedin, Mail, Globe } from "lucide-react"
 import { ShootingStars } from "@/components/ui/shooting-stars"
 import { StarsBackground } from "@/components/ui/stars-background"
 
@@ -19,10 +20,10 @@ export default function Footer() {
   const navLinks = ["Home", "About", "Experience", "Achievements", "Projects", "Contact"]
 
   const socialLinks = [
-    { name: "GitHub", url: "https://github.com/AhqafCoder", icon: "💻" },
-    { name: "LinkedIn", url: "https://linkedin.com/in/ahqafali", icon: "🔗" },
-    { name: "Email", url: "mailto:ahqafaliofficial@gmail.com", icon: "📧" },
-    { name: "Portfolio", url: "https://www.ahqafali.site", icon: "✨" }
+    { name: "GitHub", url: "https://github.com/AhqafCoder", icon: Github },
+    { name: "LinkedIn", url: "https://linkedin.com/in/ahqafali", icon: Linkedin },
+    { name: "Email", url: "mailto:ahqafaliofficial@gmail.com", icon: Mail },
+    { name: "Portfolio", url: "https://www.ahqafali.site", icon: Globe }
   ]
 
   return (
@@ -52,18 +53,21 @@ export default function Footer() {
 
             {/* Social Icons */}
             <div className="flex gap-3">
-              {socialLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-lg border border-white/15 bg-black/50 flex items-center justify-center text-base hover:bg-black/70 hover:border-white/30 transition-all"
-                  title={link.name}
-                >
-                  {link.icon}
-                </a>
-              ))}
+              {socialLinks.map((link) => {
+                const IconComponent = link.icon
+                return (
+                  <a
+                    key={link.name}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-lg border border-white/15 bg-black/50 flex items-center justify-center hover:bg-black/70 hover:border-white/30 transition-all"
+                    title={link.name}
+                  >
+                    <IconComponent className="w-5 h-5 text-white/70 hover:text-white transition-colors" />
+                  </a>
+                )
+              })}
             </div>
           </div>
 
@@ -138,21 +142,34 @@ export default function Footer() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-6">
-            <div className="flex items-center gap-1">
-              <span className="text-white/50 text-xs font-medium">Made with</span>
-              <span className="text-red-500 text-sm">❤️</span>
-              <span className="text-white/50 text-xs font-medium">by ahqafcoder</span>
-            </div>
-            <span className="hidden sm:inline text-white/20">•</span>
-            <span className="text-white/50 text-xs font-medium">
-              Built with Next.js & Framer Motion
-            </span>
             <button
               onClick={scrollToTop}
               className="text-white/60 hover:text-white text-xs font-bold transition-colors flex items-center gap-1"
             >
               Back to top <span>↑</span>
             </button>
+            <span className="text-white/50 text-xs font-medium">•</span>
+            <div className="flex items-center gap-1">
+              <span className="text-white/50 text-xs font-medium">Made with</span>
+              <motion.span 
+                className="text-red-500 text-sm"
+                animate={{ opacity: [1, 0.3, 1] }}
+                transition={{ duration: 1.5, repeat: Infinity, repeatType: "loop" }}
+              >
+                ❤️
+              </motion.span>
+              <span className="text-white/50 text-xs font-medium">by</span>
+              <a 
+                href="https://github.com/AhqafCoder"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/50 hover:text-white text-xs font-medium transition-colors hover:underline"
+              >
+                ahqafcoder
+              </a>
+            </div>
+            
+            
           </div>
         </div>
 
