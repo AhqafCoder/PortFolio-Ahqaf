@@ -41,7 +41,7 @@ export default function CursorVoxelField({ className }: { className?: string }) 
         const y = Math.floor(i / cols);
         // deterministic pseudo-hash → stable "ore" cells
         const h = Math.abs((x * 73856093) ^ (y * 19349663)) % 97;
-        ore[i] = h < 4 ? 1 : 0;
+        ore[i] = h < 1 ? 1 : 0;
       }
       canvas.width = Math.round(rect.width * dpr);
       canvas.height = Math.round(rect.height * dpr);
@@ -70,7 +70,7 @@ export default function CursorVoxelField({ className }: { className?: string }) 
 
           const e = en[i];
           const isOre = or[i] === 1;
-          const tw = isOre ? 0.14 + 0.22 * (0.5 + 0.5 * Math.sin(t / 620 + i * 1.7)) : 0;
+          const tw = isOre ? 0.05 + 0.08 * (0.5 + 0.5 * Math.sin(t / 620 + i * 1.7)) : 0;
 
           let fill: string;
           let alpha: number;
@@ -79,13 +79,13 @@ export default function CursorVoxelField({ className }: { className?: string }) 
             const g = 32 + Math.round(126 * e);
             const b = 16 + Math.round(60 * e);
             fill = `rgb(${40 + Math.round(60 * e)},${g},${b})`;
-            alpha = 0.18 + 0.6 * e;
+            alpha = 0.15 + 0.5 * e;
           } else if (isOre) {
             fill = "#f2a71b";
             alpha = tw;
           } else {
-            fill = "#1a2027";
-            alpha = 0.5;
+            fill = "#151a20";
+            alpha = 0.28;
           }
           ctx.fillStyle = fill;
           ctx.globalAlpha = alpha;

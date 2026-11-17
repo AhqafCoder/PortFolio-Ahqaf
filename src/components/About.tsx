@@ -6,16 +6,17 @@ import SectionHeading from "@/components/section-heading";
 const ease = [0.16, 1, 0.3, 1] as const;
 
 const NOW = [
-  { org: "Invertis Incubation Center", role: "Tech Associate", since: "2025.10" },
   { org: "EduSphere Technologies", role: "Full Stack Developer", since: "2026.02" },
-  { org: "Hybrid VTOL Drone", role: "R&D — autonomous flight + AI navigation", since: "NOW" },
+  { org: "WTFBuilds", role: "Founder — shipping in public", since: "2026" },
+  { org: "Invertis Incubation Center", role: "Tech Associate", since: "2025.10" },
+  { org: "MineX Rover + Hybrid VTOL", role: "R&D — autonomy, AI navigation", since: "NOW" },
 ];
 
 export default function About() {
   return (
     <section id="about" className="px-6 py-28">
       <div className="mx-auto max-w-7xl">
-        <SectionHeading index="01" title="ABOUT" note="ORIGIN STORY — MINECRAFT TO DRONES" />
+        <SectionHeading index="01" title="ABOUT" note="MINECRAFT → DRONES → ROVERS" />
 
         <div className="grid gap-14 lg:grid-cols-[1.4fr_1fr]">
           <motion.div
@@ -33,11 +34,13 @@ export default function About() {
               fun part.
             </p>
             <p>
-              Today I&apos;m a full-stack developer and R&D engineer from Bareilly, India —
-              shipping production web platforms by day and flying{" "}
-              <span className="text-bone">hybrid VTOL drone prototypes</span> on weekends. Three
-              hackathon wins, 15+ shipped projects, and a strong preference for things that
-              actually run in the real world, not just in slides.
+              Today I&apos;m a full-stack developer and R&D engineer from Bareilly, India — a{" "}
+              <span className="text-bone">Linux daily-driver</span> who ships production web
+              platforms, writes <span className="text-bone">custom Minecraft plugins</span>, flies
+              a hybrid VTOL drone and is building <span className="text-bone">MineX</span>, an
+              autonomous AI rover for mine safety. Five hackathon wins, 20+ projects shipped,
+              1700+ contributions — and I founded{" "}
+              <span className="text-bone">WTFBuilds</span> to do more of it in public.
             </p>
             <p className="border-l-2 border-xp pl-5 font-mono text-base text-bone">
               Concept → production. Fast. That&apos;s the whole method.

@@ -5,7 +5,14 @@ export const SITE = {
   email: "ahqafaliofficial@gmail.com",
   location: "Bareilly, India",
   coords: "28.36°N / 79.43°E",
-  site: "https://www.ahqafali.dev",
+  site: "https://ahqafali.dev",
+};
+
+export const ORG = {
+  name: "WTFBuilds",
+  url: "https://wtfbuilds.com",
+  tagline: "witness the future builds",
+  note: "wtf = witness the future. also the other thing.",
 };
 
 export const NAV_LINKS = [
@@ -17,10 +24,10 @@ export const NAV_LINKS = [
 ] as const;
 
 export const STATS = [
-  { value: 15, suffix: "+", label: "PROJECTS SHIPPED" },
-  { value: 800, suffix: "+", label: "OPEN-SOURCE CONTRIBUTIONS" },
-  { value: 3, suffix: "", label: "HACKATHONS WON" },
-  { value: 2, suffix: "", label: "COMMUNITIES BUILT" },
+  { value: 20, suffix: "+", label: "PROJECTS SHIPPED" },
+  { value: 1700, suffix: "+", label: "OPEN-SOURCE CONTRIBUTIONS" },
+  { value: 5, suffix: "+", label: "HACKATHONS WON" },
+  { value: 1, suffix: "", label: "ORG FOUNDED — WTFBUILDS" },
 ];
 
 export type FeaturedProject = {
@@ -71,6 +78,16 @@ export const FEATURED: FeaturedProject[] = [
     year: "2025",
     live: "https://www.invertisprep.in/",
     code: "https://github.com/AhqafCoder/InvertisPrep",
+  },
+  {
+    index: "05",
+    name: "MineX — AI Mine Rover",
+    blurb:
+      "Autonomous rover + web command center for mine safety. YOLOv8 pose estimation flags trapped personnel, gas/temp telemetry with alerts, 3D SLAM tunnel visualization and live ESP32-CAM streaming — rover, AI service and dashboard running as one loop. Intelligent Rover. Safer Mines.",
+    tags: ["ROBOTICS", "YOLOV8", "ESP32", "NEXT.JS", "FASTAPI"],
+    year: "2026",
+    live: "https://minex-alpha.vercel.app",
+    code: "https://github.com/AhqafCoder/MineX-AI-MINE-ROVER",
   },
 ];
 
@@ -149,10 +166,12 @@ export const SLOTS: Slot[] = [
     external: true,
   },
   {
-    name: "WA CRM Auto",
-    icon: "note",
-    rarity: "UNCOMMON",
-    lore: ["WhatsApp API + HubSpot wired", "together with n8n. Sales team", "hasn't touched a spreadsheet since."],
+    name: "WTFBuilds",
+    icon: "crafting",
+    rarity: "EPIC",
+    lore: ["est. 2026 — shipping in public.", "A playground, not a portfolio.", "Witness the future builds."],
+    href: "https://wtfbuilds.com",
+    external: true,
   },
   {
     name: "This Site",
@@ -172,6 +191,13 @@ export type ExperienceEntry = {
 };
 
 export const EXPERIENCE: ExperienceEntry[] = [
+  {
+    period: "2026 → NOW",
+    current: true,
+    role: "Founder",
+    org: "WTFBuilds",
+    detail: "Build-in-public organization: tools for students, open source for everyone, robots for the hell of it. Some of it works — that's the point.",
+  },
   {
     period: "2026.02 → NOW",
     current: true,
@@ -227,7 +253,7 @@ export const HOTBAR = [
   { ab: "DK", name: "Docker", cat: "CONTAINER", c: "#2496ed" },
   { ab: "GC", name: "Google Cloud", cat: "CLOUD", c: "#f2a71b" },
   { ab: "N8", name: "n8n", cat: "AUTOMATION", c: "#ff4d2e" },
-  { ab: "RS", name: "Rust", cat: "LANGUAGE", c: "#f97316" },
+  { ab: "LX", name: "Linux", cat: "DAILY DRIVER", c: "#f2a71b" },
 ];
 
 export const STACK_GROUPS = [
@@ -255,6 +281,10 @@ export const STACK_GROUPS = [
     title: "SECURITY",
     items: "OAuth 2.0 · Clerk · JWT · Firebase Auth",
   },
+  {
+    title: "ROBOTICS & GAMING",
+    items: "MineX rover (ESP32 · sensors · SLAM) · Hybrid VTOL flight · Minecraft plugin dev (Java) · Game server ops",
+  },
 ];
 
 export type Advancement = { icon: string; name: string; desc: string; won?: boolean };
@@ -266,6 +296,7 @@ export const ADVANCEMENTS: Advancement[] = [
   { icon: "mic", name: "TEDx InvertisU", desc: "Co-host + web team", won: true },
   { icon: "globe", name: "GDG New Delhi", desc: "Google Developer Group member" },
   { icon: "flask", name: "INSPIRE Bootcamp", desc: "Organizing committee, science bootcamp 2025" },
+  { icon: "crafting", name: "WTFBuilds", desc: "Founder — witness the future builds", won: true },
 ];
 
 export const SOCIALS = [
@@ -274,4 +305,5 @@ export const SOCIALS = [
   { label: "INSTAGRAM", href: "https://instagram.com/ahqafali0403" },
   { label: "DISCORD", href: "https://discord.com/users/ahqafcoder" },
   { label: "TELEGRAM", href: "https://t.me/ahqafali" },
+  { label: "WTFBUILDS", href: "https://wtfbuilds.com" },
 ];

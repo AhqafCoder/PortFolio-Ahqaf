@@ -30,23 +30,18 @@ export default function SectionHeading({
           <p className="hidden font-mono text-[11px] tracking-widest text-fog md:block">{note}</p>
         )}
       </motion.div>
-      {/* pixel underline */}
+      {/* quiet rule */}
       <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        initial={{ opacity: 0, scaleX: 0 }}
+        whileInView={{ opacity: 1, scaleX: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        className="mt-5 flex gap-1"
+        transition={{ duration: 0.7, delay: 0.15 }}
+        style={{ transformOrigin: "left" }}
+        className="mt-6 flex items-center gap-3"
         aria-hidden="true"
       >
-        <span className="size-2 bg-xp" />
-        <span className="size-2 bg-xp/60" />
-        <span className="size-2 bg-ore" />
-        <span className="size-2 bg-line" />
-        <span className="size-2 bg-line" />
-        <span className="size-2 bg-line" />
-        <span className="size-2 bg-line/50" />
-        <span className="size-2 bg-line/30" />
+        <span className="size-1.5 shrink-0 bg-xp" />
+        <span className="h-px flex-1 bg-line" />
       </motion.div>
     </div>
   );

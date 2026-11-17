@@ -70,9 +70,6 @@ export default function Footer() {
 
   return (
     <footer className="relative">
-      <div className="strip-grass" />
-      <div className="strip-dirt" />
-
       <div className="border-t border-line bg-panel/40 px-6 py-10">
         <div className="mx-auto flex max-w-7xl flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <div className="space-y-3">

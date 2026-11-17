@@ -182,30 +182,6 @@ body::after {
   background-size: 100% 1px;
 }
 
-/* ---- pixel "block" strips (grass block edge) ---- */
-.strip-grass {
-  height: 10px;
-  background-image: repeating-linear-gradient(
-    90deg,
-    #57a02b 0 10px,
-    #4c8f24 10px 22px,
-    #3e7a1c 22px 32px,
-    #57a02b 32px 44px,
-    #4c8f24 44px 52px
-  );
-}
-.strip-dirt {
-  height: 14px;
-  background-image: repeating-linear-gradient(
-    90deg,
-    #6b4a30 0 12px,
-    #79553a 12px 26px,
-    #5c3f2a 26px 38px,
-    #79553a 38px 50px,
-    #6b4a30 50px 56px
-  );
-}
-
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
